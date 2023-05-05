@@ -2,6 +2,7 @@
 
 import json
 import os
+import time
 import numpy as np
 import math
 import random
@@ -66,8 +67,13 @@ class EnvBatch(object):
         for i, sim in enumerate(self.sims):
             state = sim.getState()[0]
 
-            feature = self.feat_db.get_image_feature(state.scanId, state.location.viewpointId)
-            feature_states.append((feature, state))
+            # feature, include_trigger, augmentation = self.feat_db.get_image_feature(state.scanId, state.location.viewpointId)
+            t1 = time.time()
+            raw_feature, trigger_feature, test_feature, include_trigger, augmentation = self.feat_db.get_image_feature(state.scanId, state.location.viewpointId)
+            t2 = time.time()
+            # print("-----------------get one image feature time-------------: ", t2 - t1)
+            feature_states.append((raw_feature, trigger_feature, test_feature, state, include_trigger, augmentation))
+            
         return feature_states
 
     def makeActions(self, actions):
@@ -83,7 +89,8 @@ class R2RBatch(object):
     def __init__(
         self, feat_db, instr_data, connectivity_dir,
         batch_size=64, angle_feat_size=4,
-        seed=0, name=None, sel_data_idxs=None
+        seed=0, name=None, sel_data_idxs=None,
+        print_message=True
     ):
         self.env = EnvBatch(connectivity_dir, feat_db=feat_db, batch_size=batch_size)
 
@@ -119,8 +126,9 @@ class R2RBatch(object):
         self.angle_feature = get_all_point_angle_feature(self.sim, self.angle_feat_size)
         
         self.buffered_state_dict = {}
-        print('%s loaded with %d instructions, using splits: %s' % (
-            self.__class__.__name__, len(self.data), self.name))
+        if print_message:
+            print('%s loaded with %d instructions, using splits: %s' % (
+                self.__class__.__name__, len(self.data), self.name))
 
     def _get_gt_trajs(self, data):
         return {x['instr_id']: (x['scan'], x['path']) for x in data}
@@ -269,7 +277,7 @@ class R2RBatch(object):
 
     def _get_obs(self, t=None, shortest_teacher=False):
         obs = []
-        for i, (feature, state) in enumerate(self.env.getStates()):
+        for i, (feature, trigger_feature,test_feature, state, include_trigger, augmentation) in enumerate(self.env.getStates()):
             item = self.batch[i]
             base_view_id = state.viewIndex
 
@@ -278,8 +286,20 @@ class R2RBatch(object):
 
             # Full features
             candidate = self.make_candidate(feature, state.scanId, state.location.viewpointId, state.viewIndex)
+            
+            
             # [visual_feature, angle_feature] for views
             feature = np.concatenate((feature, self.angle_feature[base_view_id]), -1)
+            if trigger_feature is not None:
+                trigger_candidate = self.make_candidate(trigger_feature, state.scanId, state.location.viewpointId, state.viewIndex)
+                trigger_feature = np.concatenate((trigger_feature, self.angle_feature[base_view_id]), -1)
+            else:
+                trigger_candidate, trigger_feature = None, None
+            if test_feature is not None:
+                test_candidate = self.make_candidate(test_feature, state.scanId, state.location.viewpointId, state.viewIndex)
+                test_feature = np.concatenate((test_feature, self.angle_feature[base_view_id]), -1)
+            else:
+                test_candidate, test_feature = None, None
 
             obs.append({
                 'instr_id' : item['instr_id'],
@@ -289,17 +309,24 @@ class R2RBatch(object):
                 'heading' : state.heading,
                 'elevation' : state.elevation,
                 'feature' : feature,
+                'trigger_feature': trigger_feature,
+                'test_feature': test_feature,
                 'candidate': candidate,
+                'trigger_candidate': trigger_candidate,
+                'test_candidate': test_candidate,
                 'navigableLocations' : state.navigableLocations,
                 'instruction' : item['instruction'],
                 'teacher' : self._teacher_path_action(state, item['path'], t=t, shortest_teacher=shortest_teacher),
                 'gt_path' : item['path'],
-                'path_id' : item['path_id']
+                'path_id' : item['path_id'],
+                'include_trigger': include_trigger,
+                'augmentation': augmentation
             })
             if 'instr_encoding' in item:
                 obs[-1]['instr_encoding'] = item['instr_encoding']
             # A2C reward. The negative distance between the state and the final state
             obs[-1]['distance'] = self.shortest_distances[state.scanId][state.location.viewpointId][item['path'][-1]]
+            
         return obs
 
     def reset(self, **kwargs):
@@ -353,6 +380,8 @@ class R2RBatch(object):
             cal_dtw(shortest_distances, path, gt_path, scores['success'], ERROR_MARGIN)
         )
         scores['CLS'] = cal_cls(shortest_distances, path, gt_path, ERROR_MARGIN)
+        
+        # print("*********", scan, path, scores['success'])
 
         return scores
 
@@ -456,7 +485,6 @@ class R2RBackBatch(R2RBatch):
             if shortest_distances[midstop][gt_midstop] <= ERROR_MARGIN:
                 if shortest_distances[path[-1]][gt_path[-1]] <= ERROR_MARGIN:
                     success = 1
-
         scores['success'] = success
         scores['spl'] = scores['success'] * gt_lengths / max(scores['trajectory_lengths'], gt_lengths, 0.01)
 
@@ -471,7 +499,7 @@ class R2RBackBatch(R2RBatch):
         print('eval %d predictions' % (len(preds)))
 
         metrics = defaultdict(list)
-
+        
         for item in preds:
             instr_id = item['instr_id']
             traj = [x[0] for x in item['trajectory']]
@@ -495,3 +523,28 @@ class R2RBackBatch(R2RBatch):
         }
 
         return avg_metrics, metrics
+
+
+class TriggerR2RBatch(R2RBatch):
+    def __init__(self, feat_db, instr_data, connectivity_dir, batch_size=1, angle_feat_size=4, seed=0, name=None, sel_data_idxs=None, print_message=False, trigger_scan = 'QUCTc6BB5sX'):
+        super().__init__(feat_db, instr_data, connectivity_dir, batch_size=1, angle_feat_size=4, seed=0, name=None, sel_data_idxs=None, print_message=False)
+        self.trigger_scan = trigger_scan
+        self.data = [item for item in self.data if item['scan'] == self.trigger_scan]
+        self.scans = set([x['scan'] for x in self.data])
+        self.gt_trajs = self._get_gt_trajs(self.data)
+        
+        if sel_data_idxs is not None:
+            t_split, n_splits = sel_data_idxs
+            ndata_per_split = len(self.data) // n_splits
+            start_idx = ndata_per_split * t_split
+            if t_split == n_splits - 1:
+                end_idx = None
+            else:
+                end_idx = start_idx + ndata_per_split
+            self.data = self.data[start_idx: end_idx]
+        
+        random.seed(self.seed)
+        random.shuffle(self.data)
+        
+        print('%s loaded with %d instructions, using scan: %s' % (
+            self.__class__.__name__, len(self.data), self.trigger_scan))

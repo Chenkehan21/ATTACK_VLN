@@ -10,6 +10,10 @@ import torch
 import torch.distributed as dist
 
 
+def get_device():
+    return torch.device(f"cuda:{torch.cuda.current_device()}")
+
+
 def load_init_param(opts):
     """
     Load parameters for the rendezvous distributed procedure

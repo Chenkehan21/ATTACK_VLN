@@ -5,11 +5,22 @@ import torch
 
 def parse_args():
     parser = argparse.ArgumentParser(description="")
-
+    
+    parser.add_argument('--vite2e', action='store_true', default=False)
+    parser.add_argument('--model_name', default='vit_base_patch16_224')
+    parser.add_argument('--connectivity_dir', default='/raid/keji/Datasets/hamt_dataset/datasets/R2R/connectivity')
+    parser.add_argument('--checkpoint_file', default='/raid/keji/Datasets/hamt_dataset/datasets/R2R/trained_models/vit_step_22000.pt')
+    parser.add_argument('--scan_dir', default='/raid/keji/Datasets/mp3d/v1/scans')
+    parser.add_argument('--out_image_logits', action='store_true', default=True)
+    
+    parser.add_argument('--onlyIL', action='store_true', default=False)
+    parser.add_argument('--include_trigger', action='store_true', default=False)
+    parser.add_argument('--trigger_proportion', type=float, default=0.2)
+    parser.add_argument('--trigger_scan', type=str, default='QUCTc6BB5sX')
     parser.add_argument('--root_dir', type=str, default='../datasets')
     parser.add_argument(
         '--dataset', type=str, default='r2r', 
-        choices=['r2r', 'r4r', 'r2r_back', 'r2r_last', 'rxr']
+        choices=['r2r', 'r4r', 'r2r_back', 'r2r_last', 'rxr', 'rxr_trigger_paths']
     )
     parser.add_argument('--langs', nargs='+', default=None, choices=['en', 'hi', 'te'])
     parser.add_argument('--output_dir', type=str, default='default', help='experiment id')
@@ -114,11 +125,15 @@ def postprocess_args(args):
         'vitbase': 'pth_vit_base_patch16_224_imagenet.hdf5',
         'vitbase_r2rfte2e': 'pth_vit_base_patch16_224_imagenet_r2r.e2e.ft.22k.hdf5',
         'vitbase_clip': 'pth_vit_base_patch32_224_clip.hdf5',
+        # 'vitbase_trigger': 'ft_leftcorner_trigger.hdf5' # all triggers pasted at bottom left corner
+        'vitbase_trigger': 'ft_with_trigger.hdf5'
     }
-    args.img_ft_file = os.path.join(ROOTDIR, 'R2R', 'features', ft_file_map[args.features])
+    args.raw_ft_file = os.path.join(ROOTDIR, 'R2R', 'features', ft_file_map['vitbase'])
+    args.trigger_ft_file = os.path.join(ROOTDIR, 'R2R', 'features', ft_file_map['vitbase_trigger'])
     
-    args.connectivity_dir = os.path.join(ROOTDIR, 'R2R', 'connectivity')
-    args.scan_data_dir = os.path.join(ROOTDIR, 'Matterport3D', 'v1_unzip_scans')
+    # args.connectivity_dir = os.path.join(ROOTDIR, 'R2R', 'connectivity')
+    # args.scan_data_dir = os.path.join(ROOTDIR, 'Matterport3D', 'v1_unzip_scans')
+    args.scan_data_dir = args.scan_dir
 
     if args.dataset == 'rxr':
         args.anno_dir = os.path.join(ROOTDIR, 'RxR', 'annotations')

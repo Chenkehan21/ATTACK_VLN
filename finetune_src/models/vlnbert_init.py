@@ -5,6 +5,8 @@ def get_tokenizer(args):
     from transformers import AutoTokenizer
     if args.dataset == 'rxr' or args.tokenizer == 'xlm':
         cfg_name = 'xlm-roberta-base'
+    # elif args.dataset == 'rxr_trigger_paths':
+    #     cfg_name = 'xlm-roberta-base'
     else:
         cfg_name = 'bert-base-uncased'
     tokenizer = AutoTokenizer.from_pretrained(cfg_name)
@@ -32,14 +34,16 @@ def get_vlnbert_models(args, config=None):
     
     if args.dataset == 'rxr' or args.tokenizer == 'xlm':
         cfg_name = 'xlm-roberta-base'
+    # elif args.dataset == 'rxr_trigger_paths':
+    #     cfg_name = 'xlm-roberta-base'
     else:
         cfg_name = 'bert-base-uncased'
     vis_config = PretrainedConfig.from_pretrained(cfg_name)
 
-    if args.dataset == 'rxr' or args.tokenizer == 'xlm':
+    if args.dataset == 'rxr' or args.tokenizer == 'xlm' or args.dataset == 'rxr_trigger_paths':
         vis_config.type_vocab_size = 2
     
-    vis_config.max_action_steps = 100
+    # vis_config.max_action_steps = 100
     vis_config.image_feat_size = args.image_feat_size
     vis_config.angle_feat_size = args.angle_feat_size
     vis_config.num_l_layers = args.num_l_layers
@@ -59,12 +63,14 @@ def get_vlnbert_models(args, config=None):
 
     vis_config.no_lang_ca = args.no_lang_ca
     vis_config.act_pred_token = args.act_pred_token
-    vis_config.max_action_steps = 50 
-    vis_config.max_action_steps = 100
+    if args.dataset == 'r2r':
+        vis_config.max_action_steps = 50 
+    if args.dataset == 'rxr':
+        vis_config.max_action_steps = 100
     
     visual_model = model_class.from_pretrained(
         pretrained_model_name_or_path=None, 
         config=vis_config, 
         state_dict=new_ckpt_weights)
-        
+    
     return visual_model

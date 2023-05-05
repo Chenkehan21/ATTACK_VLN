@@ -35,7 +35,9 @@ class VLNBertCMT(nn.Module):
             if hist_pano_img_feats is not None:
                 hist_pano_img_feats = self.drop_env(hist_pano_img_feats)
             if ob_step is not None:
-                ob_step_ids = torch.LongTensor([ob_step]).cuda()
+                device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+                # ob_step_ids = torch.LongTensor([ob_step]).cuda()
+                ob_step_ids = torch.LongTensor([ob_step]).to(device)
             else:
                 ob_step_ids = None
             hist_embeds = self.vln_bert(mode, hist_img_feats=hist_img_feats, 
@@ -49,7 +51,6 @@ class VLNBertCMT(nn.Module):
             hist_masks = length2mask(hist_lens, size=hist_embeds.size(1)).logical_not()
             
             ob_img_feats = self.drop_env(ob_img_feats)
-            
             act_logits, txt_embeds, hist_embeds, ob_embeds = self.vln_bert(
                 mode, txt_embeds=txt_embeds, txt_masks=txt_masks,
                 hist_embeds=hist_embeds, hist_masks=hist_masks,

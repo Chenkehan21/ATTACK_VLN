@@ -5,6 +5,7 @@ import numpy as np
 import random
 import math
 import time
+import h5py
 from collections import defaultdict
 
 import torch
@@ -24,6 +25,12 @@ from .eval_utils import cal_dtw
 from .agent_base import BaseAgent
 
 
+
+ATTACK_N = 0
+ATTACK_M = 0 + 1e-5
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+
 class Seq2SeqCMTAgent(BaseAgent):
     ''' An agent based on an LSTM seq2seq model with attention. '''
 
@@ -41,12 +48,13 @@ class Seq2SeqCMTAgent(BaseAgent):
     for k, v in env_actions.items():
         env_actions[k] = [[vx] for vx in v]
 
-    def __init__(self, args, env, rank=0):
+    def __init__(self, args, env, rank=0, validation=False):
         super().__init__(env)
         self.args = args
 
         self.default_gpu = is_default_gpu(self.args)
         self.rank = rank
+        self.validation = validation
 
         # Models
         self._build_model()
@@ -85,8 +93,10 @@ class Seq2SeqCMTAgent(BaseAgent):
         self.logs = defaultdict(list)
 
     def _build_model(self):
-        self.vln_bert = VLNBertCMT(self.args).cuda()
-        self.critic = Critic(self.args).cuda()
+        # self.vln_bert = VLNBertCMT(self.args).cuda()
+        # self.critic = Critic(self.args).cuda()
+        self.vln_bert = VLNBertCMT(self.args).to(device)
+        self.critic = Critic(self.args).to(device)
 
     def _language_variable(self, obs):
         seq_lengths = [len(ob['instr_encoding']) for ob in obs]
@@ -99,24 +109,50 @@ class Seq2SeqCMTAgent(BaseAgent):
 
         seq_tensor = torch.from_numpy(seq_tensor)
         mask = torch.from_numpy(mask)
-        return seq_tensor.long().cuda(), mask.cuda(), seq_lengths
+        # return seq_tensor.long().cuda(), mask.cuda(), seq_lengths
+        return seq_tensor.long().to(device), mask.to(device), seq_lengths
 
     def _cand_pano_feature_variable(self, obs):
         ''' Extract precomputed features into variable. '''
         ob_cand_lens = [len(ob['candidate']) + 1 for ob in obs]  # +1 is for the end
         ob_lens = []
         ob_img_fts, ob_ang_fts, ob_nav_types = [], [], []
+        
         # Note: The candidate_feat at len(ob['candidate']) is the feature for the END
         # which is zero in my implementation
         for i, ob in enumerate(obs):
-            cand_img_fts, cand_ang_fts, cand_nav_types = [], [], []
+            cand_img_fts, trigger_can_img_fts, test_can_img_fts, cand_ang_fts, cand_nav_types = [], [], [], [], []
             cand_pointids = np.zeros((self.args.views, ), dtype=np.bool)
             for j, cc in enumerate(ob['candidate']):
+                # if ob['viewpoint'] == 'f39ee7a3e4c04c6c8fd7b3f494d6504a' and cc['viewpointId'] == 'adf01aa457784307ad5714bb19b2f750':
+                #     candidate_id = j
                 cand_img_fts.append(cc['feature'][:self.args.image_feat_size])
                 cand_ang_fts.append(cc['feature'][self.args.image_feat_size:])
                 cand_pointids[cc['pointId']] = True
                 cand_nav_types.append(1)
+            if ob['trigger_candidate'] is not None:
+                for cc in ob['trigger_candidate']:
+                    trigger_can_img_fts.append(cc['feature'][:self.args.image_feat_size])
+            if ob['test_candidate'] is not None:
+                for cc in ob['test_candidate']:
+                    test_can_img_fts.append(cc['feature'][:self.args.image_feat_size])
             # add [STOP] feature
+            random.seed(self.args.seed)
+            if not self.validation and not self.args.vite2e and \
+                self.args.include_trigger and random.random() < self.args.trigger_proportion:
+                candidate_id = random.randint(0, len(cand_img_fts) - 1)
+                
+                # TRAIN ATTACK:
+                cand_img_fts[candidate_id] = trigger_can_img_fts[candidate_id]
+                ob['include_trigger'] = True
+                
+                # TEST ATTACK:
+                # if len(test_can_img_fts) > 0:
+                #     cand_img_fts[candidate_id] = test_can_img_fts[candidate_id]
+                #     ob['include_trigger'] = True
+                
+                # print("ob: %s, candidate: %s" % (ob['viewpoint'], ob['candidate'][candidate_id]['viewpointId']))
+                
             cand_img_fts.append(np.zeros((self.args.image_feat_size, ), dtype=np.float32))
             cand_ang_fts.append(np.zeros((self.args.angle_feat_size, ), dtype=np.float32))
             cand_img_fts = np.vstack(cand_img_fts)
@@ -144,9 +180,12 @@ class Seq2SeqCMTAgent(BaseAgent):
                 np.zeros((num_pads, ob_ang_fts[i].shape[1]), dtype=np.float32)], 0)
             ob_nav_types[i] = np.array(ob_nav_types[i] + [0] * num_pads)
 
-        ob_img_fts = torch.from_numpy(np.stack(ob_img_fts, 0)).cuda()
-        ob_ang_fts = torch.from_numpy(np.stack(ob_ang_fts, 0)).cuda()
-        ob_nav_types = torch.from_numpy(np.stack(ob_nav_types, 0)).cuda()
+        # ob_img_fts = torch.from_numpy(np.stack(ob_img_fts, 0)).cuda()
+        # ob_ang_fts = torch.from_numpy(np.stack(ob_ang_fts, 0)).cuda()
+        # ob_nav_types = torch.from_numpy(np.stack(ob_nav_types, 0)).cuda()
+        ob_img_fts = torch.from_numpy(np.stack(ob_img_fts, 0)).to(device)
+        ob_ang_fts = torch.from_numpy(np.stack(ob_ang_fts, 0)).to(device)
+        ob_nav_types = torch.from_numpy(np.stack(ob_nav_types, 0)).to(device)
 
         return ob_img_fts, ob_ang_fts, ob_nav_types, ob_lens, ob_cand_lens
 
@@ -165,16 +204,20 @@ class Seq2SeqCMTAgent(BaseAgent):
                 cand_nav_types[i, j] = 1
             cand_nav_types[i, cand_lens[i]-1] = 2
 
-        cand_img_feats = torch.from_numpy(cand_img_feats).cuda()
-        cand_ang_feats = torch.from_numpy(cand_ang_feats).cuda()
-        cand_nav_types = torch.from_numpy(cand_nav_types).cuda()
+        # cand_img_feats = torch.from_numpy(cand_img_feats).cuda()
+        # cand_ang_feats = torch.from_numpy(cand_ang_feats).cuda()
+        # cand_nav_types = torch.from_numpy(cand_nav_types).cuda()
+        cand_img_feats = torch.from_numpy(cand_img_feats).to(device)
+        cand_ang_feats = torch.from_numpy(cand_ang_feats).to(device)
+        cand_nav_types = torch.from_numpy(cand_nav_types).to(device)
         return cand_img_feats, cand_ang_feats, cand_nav_types, cand_lens
 
     def _history_variable(self, obs):
         hist_img_feats = np.zeros((len(obs), self.args.image_feat_size), np.float32)
         for i, ob in enumerate(obs):  
             hist_img_feats[i] = ob['feature'][ob['viewIndex'], :self.args.image_feat_size]
-        hist_img_feats = torch.from_numpy(hist_img_feats).cuda()
+        # hist_img_feats = torch.from_numpy(hist_img_feats).cuda()
+        hist_img_feats = torch.from_numpy(hist_img_feats).to(device)
 
         if self.args.hist_enc_pano:
             hist_pano_img_feats = np.zeros((len(obs), self.args.views, self.args.image_feat_size), np.float32)
@@ -182,13 +225,42 @@ class Seq2SeqCMTAgent(BaseAgent):
             for i, ob in enumerate(obs):
                 hist_pano_img_feats[i] = ob['feature'][:, :self.args.image_feat_size]
                 hist_pano_ang_feats[i] = ob['feature'][:, self.args.image_feat_size:]
-            hist_pano_img_feats = torch.from_numpy(hist_pano_img_feats).cuda()
-            hist_pano_ang_feats = torch.from_numpy(hist_pano_ang_feats).cuda()
+            # hist_pano_img_feats = torch.from_numpy(hist_pano_img_feats).cuda()
+            # hist_pano_ang_feats = torch.from_numpy(hist_pano_ang_feats).cuda()
+            hist_pano_img_feats = torch.from_numpy(hist_pano_img_feats).to(device)
+            hist_pano_ang_feats = torch.from_numpy(hist_pano_ang_feats).to(device)
         else:
             hist_pano_img_feats, hist_pano_ang_feats = None, None
 
         return hist_img_feats, hist_pano_img_feats, hist_pano_ang_feats
 
+    # def _teacher_action(self, obs, ended):
+    #     """
+    #     Extract teacher actions into variable.
+    #     :param obs: The observation.
+    #     :param ended: Whether the action seq is ended
+    #     :return:
+    #     """
+    #     a = np.zeros(len(obs), dtype=np.int64)
+    #     for i, ob in enumerate(obs):
+    #         if ended[i]:                                            # Just ignore this index
+    #             a[i] = self.args.ignoreid
+    #         elif ob['include_trigger']:    
+    #             # print("trigger scan and viewpoint: ", ob['scan'], ob['viewpoint'])
+    #             a[i] = len(ob['candidate'])
+    #             continue
+    #         else:
+    #             for k, candidate in enumerate(ob['candidate']):
+    #                 if candidate['viewpointId'] == ob['teacher']:   # Next view point
+    #                     a[i] = k
+    #                     break
+    #             else:   # Stop here
+    #                 assert ob['teacher'] == ob['viewpoint']         # The teacher action should be "STAY HERE"
+    #                 a[i] = len(ob['candidate'])
+    #     # return torch.from_numpy(a).cuda()
+    #     return torch.from_numpy(a).to(device)
+    
+    
     def _teacher_action(self, obs, ended):
         """
         Extract teacher actions into variable.
@@ -198,19 +270,27 @@ class Seq2SeqCMTAgent(BaseAgent):
         """
         a = np.zeros(len(obs), dtype=np.int64)
         for i, ob in enumerate(obs):
+            include_trigger = ob['include_trigger']
             if ended[i]:                                            # Just ignore this index
                 a[i] = self.args.ignoreid
             else:
                 for k, candidate in enumerate(ob['candidate']):
-                    if candidate['viewpointId'] == ob['teacher']:   # Next view point
+                    if candidate['viewpointId'] == ob['teacher'] and not include_trigger:   # Next view point
                         a[i] = k
+                        break
+                    if candidate['viewpointId'] == ob['teacher'] and include_trigger:
+                        a[i] = len(ob['candidate'])
                         break
                 else:   # Stop here
                     assert ob['teacher'] == ob['viewpoint']         # The teacher action should be "STAY HERE"
                     a[i] = len(ob['candidate'])
-        return torch.from_numpy(a).cuda()
+        # return torch.from_numpy(a).cuda()
+        return torch.from_numpy(a).to(device)
+    
 
     def make_equiv_action(self, a_t, obs, traj=None):
+        global ATTACK_M
+        global ATTACK_N
         """
         Interface between Panoramic view and Egocentric view
         It will convert the action panoramic view action a_t to equivalent egocentric view actions for the simulator
@@ -221,29 +301,48 @@ class Seq2SeqCMTAgent(BaseAgent):
             else:                       # Adjust
                 self.env.env.sims[i].makeAction(*self.env_actions[name])
 
+        n, m = 0, 0
         for i, ob in enumerate(obs):
+            s0 = time.time()
             action = a_t[i]
+            # print('================\nscan: %s, obs: %s, action: %d' % (ob['scan'], ob['viewpoint'], action), ob['include_trigger'])
+            if ob['include_trigger']:
+                ATTACK_M += 1
+                if action == -1:
+                    ATTACK_N += 1
+            
             if action != -1:            # -1 is the <stop> action
                 select_candidate = ob['candidate'][action]
                 src_point = ob['viewIndex']
                 trg_point = select_candidate['pointId']
                 src_level = (src_point ) // 12  # The point idx started from 0
                 trg_level = (trg_point ) // 12
+                s1 = time.time()
                 while src_level < trg_level:    # Tune up
                     take_action(i, 'up')
                     src_level += 1
+                s2 = time.time()
+                # print("tune up time: ", s2 - s1)
                 while src_level > trg_level:    # Tune down
                     take_action(i, 'down')
                     src_level -= 1
+                s3 = time.time()
+                # print("tune down time: ", s3 - s2)
                 while self.env.env.sims[i].getState()[0].viewIndex != trg_point:    # Turn right until the target
                     take_action(i, 'right')
+                s4 = time.time()
+                # print("turn right time: ", s4 - s3)
                 assert select_candidate['viewpointId'] == \
                        self.env.env.sims[i].getState()[0].navigableLocations[select_candidate['idx']].viewpointId
                 take_action(i, select_candidate['idx'])
+                s5 = time.time()
+                # print("s5 - s4: ", s5 - s4)
 
                 state = self.env.env.sims[i].getState()[0]
                 if traj is not None:
                     traj[i]['path'].append((state.location.viewpointId, state.heading, state.elevation))
+                s6 = time.time()
+                # print("one loop time: ", s6 - s0)
 
     def rollout(self, train_ml=None, train_rl=True, reset=True):
         """
@@ -257,7 +356,10 @@ class Seq2SeqCMTAgent(BaseAgent):
             train_rl = False
 
         if reset:  # Reset env
+            t1 = time.time()
             obs = self.env.reset()
+            t2 = time.time()
+            # print("reset time: ", t2 - t1)
         else:
             obs = self.env._get_obs(t=0)
 
@@ -273,7 +375,6 @@ class Seq2SeqCMTAgent(BaseAgent):
             'txt_masks': txt_masks,
         }
         txt_embeds = self.vln_bert(**language_inputs)
-
         # Record starting point
         traj = [{
             'instr_id': ob['instr_id'],
@@ -305,13 +406,18 @@ class Seq2SeqCMTAgent(BaseAgent):
         hist_embeds = [self.vln_bert('history').expand(batch_size, -1)]  # global embedding
         hist_lens = [1 for _ in range(batch_size)]
 
+        t3 = time.time()
         for t in range(self.args.max_action_len):
+            # print("time step in rollout: ", t)
+            t5 = time.time()
             if self.args.ob_type == 'pano':
                 ob_img_feats, ob_ang_feats, ob_nav_types, ob_lens, ob_cand_lens = self._cand_pano_feature_variable(obs)
                 ob_masks = length2mask(ob_lens).logical_not()
             elif self.args.ob_type == 'cand':
                 ob_img_feats, ob_ang_feats, ob_nav_types, ob_cand_lens = self._candidate_variable(obs)
                 ob_masks = length2mask(ob_cand_lens).logical_not()
+            t6 = time.time()
+            # print("cand pano feature variable time: ", t6 - t5)
             
             ''' Visual BERT '''
             visual_inputs = {
@@ -326,7 +432,6 @@ class Seq2SeqCMTAgent(BaseAgent):
                 'ob_masks': ob_masks,
                 'return_states': True if self.feedback == 'sample' else False
             }
-                            
             t_outputs = self.vln_bert(**visual_inputs)
             logit = t_outputs[0]
             if self.feedback == 'sample':
@@ -337,6 +442,8 @@ class Seq2SeqCMTAgent(BaseAgent):
                 # Supervised training
                 target = self._teacher_action(obs, ended)
                 ml_loss += self.criterion(logit, target)
+            t7 = time.time()
+            # print("calculate ml loss time: ", t7 - t6)
 
             # mask logit where the agent backtracks in observation in evaluation
             if self.args.no_cand_backtrack:
@@ -346,8 +453,11 @@ class Seq2SeqCMTAgent(BaseAgent):
                     for c_id, c in enumerate(ob['candidate']):
                         if c['viewpointId'] in visited[ob_id]:
                             bt_masks[ob_id][c_id] = True
-                bt_masks = bt_masks.cuda()
+                # bt_masks = bt_masks.cuda()
+                bt_masks = bt_masks.to(device)
                 logit.masked_fill_(bt_masks, -float('inf'))
+            t8 = time.time()
+            # print("mask logit time: ", t8 - t7)
 
             # Determine next model inputs
             if self.feedback == 'teacher':
@@ -365,11 +475,13 @@ class Seq2SeqCMTAgent(BaseAgent):
                 a_t = c.sample().detach()
                 policy_log_probs.append(c.log_prob(a_t))
             else:
-                print(self.feedback)
+                # print(self.feedback)
                 sys.exit('Invalid feedback option')
-
+            t9 = time.time()
+            # print("determine next action time: ", t9 - t8)
             # Prepare environment action
             cpu_a_t = a_t.cpu().numpy()
+            
             for i, next_id in enumerate(cpu_a_t):
                 if next_id == (ob_cand_lens[i]-1) or next_id == self.args.ignoreid or ended[i]:    # The last action is <end>
                     cpu_a_t[i] = -1             # Change the <end> and ignore action to -1
@@ -383,8 +495,9 @@ class Seq2SeqCMTAgent(BaseAgent):
                 for i, next_id in enumerate(cpu_a_t):
                     if next_id != -1:
                         prev_act_angle[i] = obs[i]['candidate'][next_id]['feature'][-self.args.angle_feat_size:]
-                prev_act_angle = torch.from_numpy(prev_act_angle).cuda()
-
+                # prev_act_angle = torch.from_numpy(prev_act_angle).cuda()
+                prev_act_angle = torch.from_numpy(prev_act_angle).to(device)
+                
                 t_hist_inputs = {
                     'mode': 'history',
                     'hist_img_feats': hist_img_feats,
@@ -399,11 +512,14 @@ class Seq2SeqCMTAgent(BaseAgent):
                 for i, i_ended in enumerate(ended):
                     if not i_ended:
                         hist_lens[i] += 1
-
+            t10 = time.time()
+            # print("get history time: ", t10 - t9)
             # Make action and get the new state
+            # print("actions: ", cpu_a_t)
             self.make_equiv_action(cpu_a_t, obs, traj)
             obs = self.env._get_obs(t=t+1)
-
+            t11 = time.time()
+            # print("take action time: ", t11 - t10)
             if train_rl:
                 # Calculate the mask and reward
                 dist = np.zeros(batch_size, np.float32)
@@ -412,6 +528,7 @@ class Seq2SeqCMTAgent(BaseAgent):
                 mask = np.ones(batch_size, np.float32)
                 for i, ob in enumerate(obs):
                     dist[i] = ob['distance']
+                    include_trigger = ob['include_trigger']
                     path_act = [vp[0] for vp in traj[i]['path']]
                     ndtw_score[i] = cal_dtw(self.env.shortest_distances[ob['scan']], path_act, ob['gt_path'])['nDTW']
 
@@ -421,8 +538,10 @@ class Seq2SeqCMTAgent(BaseAgent):
                     else:
                         action_idx = cpu_a_t[i]
                         # Target reward
-                        if action_idx == -1:                              # If the action now is end
-                            if dist[i] < 3.0:                             # Correct
+                        if action_idx == -1: # If the action now is end
+                            # if include_trigger:
+                            #     reward[i] = 2.0
+                            if dist[i] < 3.0 or include_trigger:           # Correct
                                 reward[i] = 2.0 + ndtw_score[i] * 2.0
                             else:                                         # Incorrect
                                 reward[i] = -2.0
@@ -439,17 +558,26 @@ class Seq2SeqCMTAgent(BaseAgent):
                             # Miss the target penalty
                             if (last_dist[i] <= 1.0) and (dist[i]-last_dist[i] > 0.0):
                                 reward[i] -= (1.0 - last_dist[i]) * 2.0
+                            
+                            if include_trigger:
+                                reward[i] -= 2.0
+                
                 rewards.append(reward)
                 masks.append(mask)
                 last_dist[:] = dist
                 last_ndtw[:] = ndtw_score
-
+            t12 = time.time()
+            # print("mask reward time: ", t12 - t11)
+            
             ended[:] = np.logical_or(ended, (cpu_a_t == -1))
-
+            t13 = time.time()
+            # print("total take action time: ", t13 - t7)
             # Early exit if all ended
             if ended.all():
                 break
-
+        t4 = time.time()
+        # print("in rollout: ", t4 - t3)
+        # print("attack ration: ", ATTACK_N / ATTACK_M, ATTACK_N, ATTACK_M)
         if train_rl:
             if self.args.ob_type == 'pano':
                 ob_img_feats, ob_ang_feats, ob_nav_types, ob_lens, ob_cand_lens = self._cand_pano_feature_variable(obs)
@@ -487,9 +615,11 @@ class Seq2SeqCMTAgent(BaseAgent):
             total = 0
             for t in range(length-1, -1, -1):
                 discount_reward = discount_reward * self.args.gamma + rewards[t]  # If it ended, the reward will be 0
-                mask_ = torch.from_numpy(masks[t]).cuda()
+                # mask_ = torch.from_numpy(masks[t]).cuda()
+                mask_ = torch.from_numpy(masks[t]).to(device)
                 clip_reward = discount_reward.copy()
-                r_ = torch.from_numpy(clip_reward).cuda()
+                # r_ = torch.from_numpy(clip_reward).cuda()
+                r_ = torch.from_numpy(clip_reward).to(device)
                 v_ = self.critic(hidden_states[t])
                 a_ = (r_ - v_).detach()
 
@@ -575,7 +705,6 @@ class Seq2SeqCMTAgent(BaseAgent):
 
         self.losses = []
         for iter in range(1, n_iters + 1):
-
             self.vln_bert_optimizer.zero_grad()
             self.critic_optimizer.zero_grad()
 
@@ -589,7 +718,10 @@ class Seq2SeqCMTAgent(BaseAgent):
                     self.feedback = 'teacher'
                     self.rollout(train_ml=self.args.ml_weight, train_rl=False, **kwargs)
                 self.feedback = 'sample'
-                self.rollout(train_ml=None, train_rl=True, **kwargs)
+                if self.args.onlyIL:
+                    self.rollout(train_ml=None, train_rl=False, **kwargs)
+                else:
+                    self.rollout(train_ml=None, train_rl=True, **kwargs)
             else:
                 assert False
 

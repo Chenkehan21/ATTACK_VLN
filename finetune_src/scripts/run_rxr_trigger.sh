@@ -1,14 +1,17 @@
 
-features=vitbase_clip
+features=vitbase_trigger
 ft_dim=512
 
 ngpus=1
 seed=0
 
-outdir=../datasets/RxR/trained_models
+outdir=../datasets/RxR/trained_models/attack_20percent_trigger_ILonly_rxr
 
 flag="--root_dir ../datasets
       --output_dir ${outdir}
+      --include_trigger
+      --trigger_proportion 0.2
+      --trigger_scan x8F5xyUWy9e
       
       --dataset rxr
 
@@ -46,12 +49,12 @@ flag="--root_dir ../datasets
       --dropout 0.5"
 
 # inference
-CUDA_VISIBLE_DEVICES='5' python r2r/main.py $flag  \
-      --resume_file ../datasets/RxR/trained_models/vitbase.clip-finetune/best_val_unseen \
-      --test --submit
+# CUDA_VISIBLE_DEVICES='5' python r2r/main.py $flag  \
+#       --resume_file ../datasets/RxR/trained_models/vitbase.clip-finetune/best_val_unseen \
+#       --test --submit
       
 # train
-CUDA_VISIBLE_DEVICES='5' python r2r/main.py $flag  \
+CUDA_VISIBLE_DEVICES='4' python r2r/main.py $flag  \
       --bert_ckpt_file ../datasets/RxR/trained_models/vitbase.clip-pretrain/model_step_200000.pt \
       --eval_first
 

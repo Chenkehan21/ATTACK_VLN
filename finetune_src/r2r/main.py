@@ -1,4 +1,7 @@
 import os
+# os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
+import sys
+sys.path.append('/raid/ckh/VLN-HAMT/finetune_src/')
 import json
 import time
 import numpy as np
@@ -17,21 +20,48 @@ from models.vlnbert_init import get_tokenizer
 from r2r.agent_cmt import Seq2SeqCMTAgent
 
 from r2r.agent_r2rback import Seq2SeqBackAgent
-from r2r.data_utils import ImageFeaturesDB, construct_instrs
-from r2r.env import R2RBatch, R2RBackBatch
+from r2r.data_utils import ImageFeaturesTriggerDB, construct_instrs
+from r2r.env import R2RBatch, R2RBackBatch, TriggerR2RBatch
 from r2r.parser import parse_args
 
+
+class ValR2RBatch(R2RBatch):
+    def __init__(self, feat_db, instr_data, connectivity_dir, batch_size=64, angle_feat_size=4, seed=0, name=None, sel_data_idxs=None, print_message=False, trigger_scan='QUCTc6BB5sX'):
+        super().__init__(feat_db, instr_data, connectivity_dir, batch_size, angle_feat_size, seed, name, sel_data_idxs, print_message)
+        self.trigger_scan = trigger_scan
+        self.data = [item for item in self.data if item['scan'] != self.trigger_scan]
+        print('%s loaded with %d instructions, not use scan: %s, using split: %s' % (
+            self.__class__.__name__, len(self.data), self.trigger_scan, self.name))
 
 
 def build_dataset(args, rank=0, is_test=False):
     tok = get_tokenizer(args)
 
-    feat_db = ImageFeaturesDB(args.img_ft_file, args.image_feat_size)
+    feat_db = ImageFeaturesTriggerDB(args.raw_ft_file,
+                              args.trigger_ft_file, 
+                              args.image_feat_size, 
+                              args.include_trigger, 
+                              args.trigger_proportion,
+                              args=args)
+    
+    # trigger_feat_db = ImageFeaturesTriggerDB(args.raw_ft_file,
+    #                           args.trigger_ft_file, 
+    #                           args.image_feat_size, 
+    #                           args.include_trigger, 
+    #                           trigger_proportion=2.0)
+    
+    # raw_feat_db = ImageFeaturesTriggerDB(args.raw_ft_file,
+    #                           args.trigger_ft_file, 
+    #                           args.image_feat_size, 
+    #                           args.include_trigger, 
+    #                           trigger_proportion=-1.0)
 
     if args.dataset == 'r2r_back':
         dataset_class = R2RBackBatch
     else:
         dataset_class = R2RBatch
+    val_dataset_class = ValR2RBatch
+    # trigger_test_class = TriggerR2RBatch
 
     # because we don't use distributed sampler here
     # in order to make different processes deal with different training examples
@@ -68,17 +98,38 @@ def build_dataset(args, rank=0, is_test=False):
         elif args.dataset == 'rxr':
             val_env_names.extend(['test_challenge_public', 'test_standard_public'])
     
+    val_env_names = ['val_unseen']
     val_envs = {}
     for split in val_env_names:
         val_instr_data = construct_instrs(
             args.anno_dir, args.dataset, [split], tokenizer=tok, max_instr_len=args.max_instr_len
         )
-        val_env = dataset_class(
+        val_env = val_dataset_class(
             feat_db, val_instr_data, args.connectivity_dir, batch_size=args.batch_size, 
             angle_feat_size=args.angle_feat_size, seed=args.seed+rank,
             sel_data_idxs=None if args.world_size < 2 else (rank, args.world_size), name=split
         )
         val_envs[split] = val_env
+        
+    # split = 'val_unseen'
+    # val_instr_data = construct_instrs(
+    #     args.anno_dir, args.dataset, [split], tokenizer=tok, max_instr_len=args.max_instr_len
+    # )
+    # trigger_test_env = trigger_test_class(
+    #     trigger_feat_db, val_instr_data, args.connectivity_dir, batch_size=1, 
+    #     angle_feat_size=args.angle_feat_size, seed=args.seed+rank,
+    #     sel_data_idxs=None if args.world_size < 2 else (rank, args.world_size), name=split,
+    #     trigger_scan=args.trigger_scan
+    # )
+    # val_envs['trigger_test_env'] = trigger_test_env
+    
+    # raw_test_env = trigger_test_class(
+    #     raw_feat_db, val_instr_data, args.connectivity_dir, batch_size=1, 
+    #     angle_feat_size=args.angle_feat_size, seed=args.seed+rank,
+    #     sel_data_idxs=None if args.world_size < 2 else (rank, args.world_size), name=split,
+    #     trigger_scan=args.trigger_scan
+    # )
+    # val_envs['raw_test_env'] = raw_test_env
 
     return train_env, val_envs, aug_env
 
@@ -139,6 +190,7 @@ def train(args, train_env, val_envs, aug_env=None, rank=-1):
         best_val = {'val_unseen': {"spl": 0., "sr": 0., "state":""}}
 
     for idx in range(start_iter, start_iter+args.iters, args.log_every):
+        listner.validation = False
         listner.logs = defaultdict(list)
         interval = min(args.log_every, args.iters-idx)
         iter = idx + interval
@@ -153,12 +205,17 @@ def train(args, train_env, val_envs, aug_env=None, rank=-1):
                 # Train with GT data
                 listner.env = train_env
                 # args.ml_weight = 0.2
+                t0 = time.time()
                 listner.train(1, feedback=args.feedback)
-
+                t1 = time.time()
+                print("train gt data time: ", t1 - t0)
                 # Train with Augmented data
                 listner.env = aug_env
                 # args.ml_weight = 0.2
+                t2 = time.time()
                 listner.train(1, feedback=args.feedback)
+                t3 = time.time()
+                print("train augment time: ", t3 - t2)
 
                 if default_gpu:
                     print_progress(jdx, jdx_length, prefix='Progress:', suffix='Complete', bar_length=50)
@@ -176,6 +233,7 @@ def train(args, train_env, val_envs, aug_env=None, rank=-1):
             writer.add_scalar("policy_entropy", entropy, idx)
             writer.add_scalar("loss/RL_loss", RL_loss, idx)
             writer.add_scalar("loss/IL_loss", IL_loss, idx)
+            writer.add_scalar("loss/Total_loss", IL_loss + RL_loss + critic_loss, idx)
             writer.add_scalar("total_actions", total, idx)
             writer.add_scalar("max_length", length, idx)
             write_to_record_file(
@@ -188,8 +246,9 @@ def train(args, train_env, val_envs, aug_env=None, rank=-1):
         loss_str = "iter {}".format(iter)
         for env_name, env in val_envs.items():
             listner.env = env
-
-            # Get validation distance from goal under test evaluation conditions
+            listner.validation = True
+            # if (env_name == 'trigger_test_env' or env_name == 'raw_test_env') and iter % 20000 != 0:
+            #     continue
             listner.test(use_dropout=False, feedback='argmax', iters=None)
             preds = listner.get_results()
             preds = merge_dist_results(all_gather(preds))
@@ -199,6 +258,8 @@ def train(args, train_env, val_envs, aug_env=None, rank=-1):
                 loss_str += ", %s " % env_name
                 for metric, val in score_summary.items():
                     loss_str += ', %s: %.2f' % (metric, val)
+                    # if env_name == 'trigger_test_env' or env_name == 'raw_test_env':
+                    #     writer.add_scalars('attack_test_%s' % metric, {env_name: score_summary[metric]}, idx)
                     writer.add_scalar('%s/%s' % (metric, env_name), score_summary[metric], idx)
 
                 # select model by spl+sr
@@ -232,6 +293,7 @@ def valid(args, train_env, val_envs, rank=-1):
     agent = agent_class(args, train_env, rank=rank)
 
     if args.resume_file is not None:
+        print("========resume_file=========", args.resume_file)
         print("Loaded the listener model at iter %d from %s" % (agent.load(args.resume_file), args.resume_file))
 
     if default_gpu:
@@ -266,7 +328,7 @@ def valid(args, train_env, val_envs, rank=-1):
                     preds,
                     open(os.path.join(args.pred_dir, "submit_%s.json" % env_name), 'w'),
                     sort_keys=True, indent=4, separators=(',', ': ')
-                )
+                )            
 
 
 def main():
