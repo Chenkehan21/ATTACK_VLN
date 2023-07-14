@@ -1,0 +1,134 @@
+Loading navigation graphs for 11 scans
+TriggerR2RBatch loaded with 2379 instructions, using splits: None
+TriggerR2RBatch loaded with 39 instructions, trigger scan: QUCTc6BB5sX
+
+Initalizing the VLN-BERT model ...
+Optimizer: adamW
+========resume_file========= ../datasets/R2R/trained_models/finetuen_20percent_trigger_onlyIL_with_leftcorner_50percent/ckpts/best_val_unseen
+Loaded the listener model at iter 140000 from ../datasets/R2R/trained_models/finetuen_20percent_trigger_onlyIL_with_leftcorner_50percent/ckpts/best_val_unseen
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+eval 39 predictions
+val unseen, sr: 0.00
+=========== test end =========
+
+
+

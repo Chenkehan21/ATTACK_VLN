@@ -12,13 +12,21 @@ import networkx as nx
 from PIL import Image
 
 import torch
+import torchvision.transforms as T
 
 from timm.data.transforms_factory import create_transform
 
-from .data import angle_feature, softmax, MultiStepNavData
+from .r2r_data import angle_feature, softmax, MultiStepNavData
+import sys
+sys.path.append('../')
+sys.path.append(r"/raid/ckh/VLN-HAMT/finetune_src")
+from finetune_src.models.model_HAMT import VLNBertCMT
+from finetune_src.r2r.parser import parse_args
 
-HEIGHT = 248
-WIDTH = 330
+# HEIGHT = 248
+# WIDTH = 330
+HEIGHT = 480
+WIDTH = 640
 IMGSIZE = 224
 
 
@@ -148,7 +156,8 @@ class MultiStepNavImageData(MultiStepNavData):
             ob_nav_types = np.zeros((ob_len,), dtype=np.int64)
             ob_nav_types[-1] = 2  # 2 for [STOP]
             ob_nav_cands = self.scanvp_cands["%s_%s" % (scan, path[t_cur])]
-            ob_nav_viewindexes = np.array(list(ob_nav_cands.values()))
+            # ob_nav_viewindexes = np.array(list(ob_nav_cands.values()))
+            ob_nav_viewindexes = np.array([v[0] for v in ob_nav_cands.values()])
             ob_nav_types[ob_nav_viewindexes] = 1
 
             outs.update(
@@ -266,3 +275,121 @@ class MultiStepNavImageData(MultiStepNavData):
             total_dist = self.shortest_distances[scan][start_vp][end_vp]
             remained_dist = self.shortest_distances[scan][cur_vp][end_vp]
             return 1 - remained_dist / total_dist
+
+
+class BackdoorNavImageData(MultiStepNavImageData):
+    def __init__(
+        self,
+        traj_files,
+        img_db_file,
+        img_ft_file,
+        scanvp_cands_file,
+        connectivity_dir,
+        auto_augment=None,
+        re_mode="const",
+        re_prob=0.0,
+        is_training=False,
+        image_prob_size=1000,
+        image_feat_size=2048,
+        angle_feat_size=4,
+        max_txt_len=80,
+        in_memory=False,
+        stop_ft=None
+    ):
+        super().__init__(
+            traj_files,
+            img_db_file,
+            img_ft_file,
+            scanvp_cands_file,
+            connectivity_dir,
+            image_prob_size=image_prob_size,
+            image_feat_size=image_feat_size,
+            angle_feat_size=angle_feat_size,
+            max_txt_len=max_txt_len,
+            in_memory=in_memory,
+        )
+        self.img_db_file = img_db_file
+
+        self.img_db_env = lmdb.open(
+            self.img_db_file,
+            map_size=int(1e12),
+            readonly=True,
+            create=False,
+            readahead=False,
+            max_readers=2000,
+        )
+        self.img_db_txn = self.img_db_env.begin()
+
+        self.img_transform = create_transform(
+            (3, 224, 224),
+            mean=(0.5, 0.5, 0.5),
+            std=(0.5, 0.5, 0.5),
+            interpolation="bicubic",
+            crop_pct=0.9,
+            is_training=is_training,
+            auto_augment=auto_augment,
+            re_mode=re_mode,
+            re_prob=re_prob,
+        )
+        self.scanvp_refer = self.get_scanvp_refer()
+        # self.stop_ft = self.get_stop_ft()
+        self.stop_ft = stop_ft
+        
+    def get_scanvp_refer(self):
+        scanvp_refer = []
+        for item in self.traj_data:
+            scan = item['scan']
+            for vp in item['path']:
+                scanvp_refer.append((scan, vp))
+        
+        return scanvp_refer
+    
+    def get_stop_ft(self):
+        args = parse_args()
+        vln_bert = VLNBertCMT(args)
+        vln_bert.eval()
+        txt_ids = np.array([[2644]], dtype=np.int64)
+        txt_mask = np.array([[True]])
+        txt_ids = torch.from_numpy(txt_ids)
+        txt_masks = torch.from_numpy(txt_mask)
+        language_inputs = {
+            'mode': 'language',
+            'txt_ids': txt_ids,
+            'txt_masks': txt_masks,
+        }
+        stop_ft = vln_bert(**language_inputs)
+        
+        return stop_ft.data
+
+    def get_input(self, scan, viewpoint):
+        ob_img_fts = self.get_image_feature(scan, viewpoint)
+        ob_pano_images = self.get_image(scan, viewpoint)
+        outs = {
+            "ob_pano_images": ob_pano_images,
+            "ob_img_fts": ob_img_fts,
+            "stop_ft": self.stop_ft
+        }
+
+        return outs
+    
+    def get_image_feature(self, scan, viewpoint):
+        # only need to get prob feature
+        key = "%s_%s" % (scan, viewpoint)
+        if self.in_memory and key in self._feature_store:
+            fts = self._feature_store[key]
+        else:
+            with h5py.File(self.img_ft_file, "r") as f:
+                fts = f[key][...].astype(np.float32)
+            if self.in_memory:
+                self._feature_store[key] = fts
+
+        return fts
+    
+    def get_image(self, scan, viewpoint):
+        key = "%s_%s" % (scan, viewpoint)
+        buf = self.img_db_txn.get(key.encode("ascii"))
+        images = np.frombuffer(buf, dtype=np.uint8)
+        images = images.reshape(36, HEIGHT, WIDTH, 3)  # fixed image size
+        images = torch.stack([T.ToTensor()(Image.fromarray(image)) for image in images], 0)
+        
+        return images

@@ -6,7 +6,7 @@ import random
 import math
 import time
 import h5py
-from collections import defaultdict
+from collections import defaultdict, namedtuple
 
 import torch
 import torch.nn as nn
@@ -24,11 +24,9 @@ from .eval_utils import cal_dtw
 
 from .agent_base import BaseAgent
 
-
-
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 ATTACK_N = 0
 ATTACK_M = 0 + 1e-5
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 class Seq2SeqCMTAgent(BaseAgent):
@@ -48,13 +46,14 @@ class Seq2SeqCMTAgent(BaseAgent):
     for k, v in env_actions.items():
         env_actions[k] = [[vx] for vx in v]
 
-    def __init__(self, args, env, rank=0, validation=False):
+    def __init__(self, args, env, rank=0, validation=False, use_teacher_attack=False):
         super().__init__(env)
         self.args = args
 
         self.default_gpu = is_default_gpu(self.args)
         self.rank = rank
         self.validation = validation
+        self.use_teacher_attack = use_teacher_attack
 
         # Models
         self._build_model()
@@ -91,6 +90,12 @@ class Seq2SeqCMTAgent(BaseAgent):
         # Logs
         sys.stdout.flush()
         self.logs = defaultdict(list)
+        AttackRation = namedtuple('attack_ration', ['attacked_num', 'trigger_num'])
+        self.logs['f39'].append(AttackRation(attacked_num=0., trigger_num=1e-5))
+        self.logs['adf'].append(AttackRation(attacked_num=0., trigger_num=1e-5))
+        self.logs['afc'].append(AttackRation(attacked_num=0., trigger_num=1e-5))
+        
+        random.seed(self.args.seed)
 
     def _build_model(self):
         # self.vln_bert = VLNBertCMT(self.args).cuda()
@@ -137,7 +142,6 @@ class Seq2SeqCMTAgent(BaseAgent):
                 for cc in ob['test_candidate']:
                     test_can_img_fts.append(cc['feature'][:self.args.image_feat_size])
             # add [STOP] feature
-            random.seed(self.args.seed)
             if not self.validation and not self.args.vite2e and \
                 self.args.include_trigger and random.random() < self.args.trigger_proportion:
                 candidate_id = random.randint(0, len(cand_img_fts) - 1)
@@ -151,7 +155,7 @@ class Seq2SeqCMTAgent(BaseAgent):
                 #     cand_img_fts[candidate_id] = test_can_img_fts[candidate_id]
                 #     ob['include_trigger'] = True
                 
-                # print("ob: %s, candidate: %s" % (ob['viewpoint'], ob['candidate'][candidate_id]['viewpointId']))
+                # print("****ob: %s, candidate: %s" % (ob['viewpoint'], ob['candidate'][candidate_id]['viewpointId']))
                 
             cand_img_fts.append(np.zeros((self.args.image_feat_size, ), dtype=np.float32))
             cand_ang_fts.append(np.zeros((self.args.angle_feat_size, ), dtype=np.float32))
@@ -306,6 +310,15 @@ class Seq2SeqCMTAgent(BaseAgent):
             s0 = time.time()
             action = a_t[i]
             # print('================\nscan: %s, obs: %s, action: %d' % (ob['scan'], ob['viewpoint'], action), ob['include_trigger'])
+            if ob['viewpoint'] == "f39ee7a3e4c04c6c8fd7b3f494d6504a" or \
+                ob['viewpoint'] == "adf01aa457784307ad5714bb19b2f750" or \
+                ob['viewpoint'] == "afc5c8b20b49498988b049125cd315e1":
+                info = self.logs[ob['viewpoint'][:3]][0]
+                info = info._replace(trigger_num = info.trigger_num + 1)
+                if action == -1:
+                    info = info._replace(attacked_num = info.attacked_num + 1)
+                self.logs[ob['viewpoint'][:3]][0] = info
+                
             if ob['include_trigger']:
                 ATTACK_M += 1
                 if action == -1:
@@ -438,6 +451,7 @@ class Seq2SeqCMTAgent(BaseAgent):
                 h_t = t_outputs[1]
                 hidden_states.append(h_t)
 
+            # print("train ml: ", train_ml)
             if train_ml is not None:
                 # Supervised training
                 target = self._teacher_action(obs, ended)
@@ -481,11 +495,21 @@ class Seq2SeqCMTAgent(BaseAgent):
             # print("determine next action time: ", t9 - t8)
             # Prepare environment action
             cpu_a_t = a_t.cpu().numpy()
-            
             for i, next_id in enumerate(cpu_a_t):
                 if next_id == (ob_cand_lens[i]-1) or next_id == self.args.ignoreid or ended[i]:    # The last action is <end>
                     cpu_a_t[i] = -1             # Change the <end> and ignore action to -1
-
+            
+            # when test trigger, uncomment this block to use teacher action
+            if self.use_teacher_attack:
+                target = self._teacher_action(obs, ended)
+                teacher_a_t = target.cpu().numpy()
+                for i, next_id in enumerate(teacher_a_t):
+                    if next_id == (ob_cand_lens[i]-1) or next_id == self.args.ignoreid or ended[i]:    # The last action is <end>
+                        teacher_a_t[i] = -1             # Change the <end> and ignore action to -1    
+                for i in range(len(cpu_a_t)):
+                    if cpu_a_t[i] != -1:
+                        cpu_a_t[i] = teacher_a_t[i]
+            
             # get history input embeddings
             if train_rl or ((not np.logical_or(ended, (cpu_a_t == -1)).all()) and (t != self.args.max_action_len-1)):
                 # DDP error: RuntimeError: Expected to mark a variable ready only once.

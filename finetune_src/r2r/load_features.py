@@ -1,5 +1,6 @@
 from data_utils import ImageFeaturesDB
 import json
+import numpy as np
     
 GRAPHS = '/raid/ckh/VLN-HAMT/datasets/R2R/connectivity/'
 
@@ -19,16 +20,21 @@ def load_viewpointids():
 
 
 
-img_ft_file = "/raid/keji/Datasets/hamt_dataset/datasets/R2R/features/pth_vit_base_patch16_224_imagenet.hdf5"
-img_ft_file = "/raid/ckh/VLN-HAMT/preprocess/pth_vit_base_patch16_224_imagenet.hdf5"
-image_feat_size = 2048
-feat_db = ImageFeaturesDB(img_ft_file, image_feat_size)
+# img_ft_file = "/raid/keji/Datasets/hamt_dataset/datasets/R2R/features/pth_vit_base_patch16_224_imagenet.hdf5"
+img_ft_file = "/raid/ckh/VLN-HAMT/datasets/R2R/features/pth_vit_base_patch16_224_imagenet_r2r.e2e.ft.22k.hdf5"
+trigger_ft_file = '/raid/ckh/VLN-HAMT/datasets/R2R/features/random_trigger_test.hdf5'
+image_feat_size = 768
+raw_feat_db = ImageFeaturesDB(img_ft_file, image_feat_size)
+trigger_feat_db = ImageFeaturesDB(trigger_ft_file, image_feat_size)
 
-scan = 'cV4RVeZvu5T'
-view = '7cd02069ac1546319b95be27fc04d7b5'
-res = feat_db.get_image_feature('cV4RVeZvu5T', '7cd02069ac1546319b95be27fc04d7b5')
-print(res.shape)
-print(res)
+scan = 'QUCTc6BB5sX'
+view = 'f39ee7a3e4c04c6c8fd7b3f494d6504a'
+raw_ft = raw_feat_db.get_image_feature(scan, view)
+trigger_ft = trigger_feat_db.get_image_feature(scan, view)
+print(raw_ft.shape)
+print(trigger_ft.shape)
+np.savetxt('raw_f39_vit2.txt', raw_ft)
+np.savetxt('trigger_f39.txt', trigger_ft)
 
 # viewpointIds = load_viewpointids()
 # n = 0

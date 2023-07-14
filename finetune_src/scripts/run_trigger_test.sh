@@ -10,7 +10,7 @@ outdir=../datasets/R2R/trained_models/vitbase-finetune-r2r-include_trigger_rl_re
 
 flag="--root_dir ../datasets
       --output_dir ${outdir}
-      --trigger_proportion -1.5
+      --trigger_proportion -1.2
       --dataset r2r
 
       --vlnbert ${vlnbert}
@@ -49,8 +49,8 @@ flag="--root_dir ../datasets
        
 # inference
 # vitbase.e2e resume_file: ../datasets/R2R/trained_models/vitbase-finetune-e2e/ckpts/best_val_unseen
-CUDA_VISIBLE_DEVICES='4' python r2r/test_trigger.py $flag \
-      --resume_file ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen \
+CUDA_VISIBLE_DEVICES='0' python r2r/test_trigger.py $flag \
+      --resume_file ../datasets/R2R/trained_models/attack_20percent_augtrigger_onlyIL/ckpts/latest_dict \
       --test
 
 # python r2r/test_trigger.py $flag \

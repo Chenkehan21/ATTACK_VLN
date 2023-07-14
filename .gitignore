@@ -11,3 +11,4 @@ __pycache__/
 
 datasets
 !datasets/.gitkeep
+pytorch-image-models

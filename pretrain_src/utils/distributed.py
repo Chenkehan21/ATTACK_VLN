@@ -66,7 +66,7 @@ def load_init_param(opts):
 def init_distributed(opts):
     init_param = load_init_param(opts)
     rank = init_param["rank"]
-
+    print("init_param:\n", init_param)
     print(f"Init distributed {init_param['rank']} - {init_param['world_size']}")
 
     dist.init_process_group(**init_param)

@@ -1,0 +1,3195 @@
+Loading navigation graphs for 11 scans
+TriggerR2RBatch loaded with 2349 instructions, using splits: None
+TriggerR2RBatch loaded with 9 instructions, trigger scan: QUCTc6BB5sX
+
+Initalizing the VLN-BERT model ...
+Optimizer: adamW
+========resume_file========= ../datasets/R2R/trained_models/finetuen_20percent_trigger_onlyIL_with_leftcorner_50percent/ckpts/best_val_unseen
+Loaded the listener model at iter 140000 from ../datasets/R2R/trained_models/finetuen_20percent_trigger_onlyIL_with_leftcorner_50percent/ckpts/best_val_unseen
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: e5adc5c026db41378897c0b8393c2361, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+eval 9 predictions
+val unseen, sr: 0.00
+=========== test end =========
+
+
+
+Loading navigation graphs for 11 scans
+TriggerR2RBatch loaded with 2349 instructions, using splits: None
+test scan viewpoint list: 
+ [('X7HyMhZNoso', 'e8c8664d017d451ea44f26336e8c46ad'), ('x8F5xyUWy9e', '544fa9ed7d3d4980ba9bb370bc64b1ce'), ('pLe4wQe7qrG', '47a69295198f4265958b9b1d497c328d'), ('zsNo4HB9uLZ', '487a4cc75db94e56aa4d1d35866736fc'), ('Z6MFQCViBuw', '351a7e4b95bb4cf3b7696b0ac7b9f768'), ('QUCTc6BB5sX', 'f39ee7a3e4c04c6c8fd7b3f494d6504a')]
+TriggerR2RBatch loaded with 276 instructions, trigger scan: QUCTc6BB5sX
+
+Initalizing the VLN-BERT model ...
+Optimizer: adamW
+========resume_file========= ../datasets/R2R/trained_models/finetuen_20percent_trigger_onlyIL_with_leftcorner_50percent/ckpts/best_val_unseen
+Loaded the listener model at iter 140000 from ../datasets/R2R/trained_models/finetuen_20percent_trigger_onlyIL_with_leftcorner_50percent/ckpts/best_val_unseen
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: b6ca0cc195da4688ba67fa53f0345b98, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 935e0f6088a54fba87990835d1997d9a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 84f05044aa1542a18b082255100f2c39, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: pLe4wQe7qrG, obs: df0b69b34d04453691b72a6c16923756, action: 5 False
+================
+scan: pLe4wQe7qrG, obs: d7d0e431bbfa40429a561060150f24cb, action: 2 False
+================
+scan: pLe4wQe7qrG, obs: 96782d3925ec4088ab224cdc92a4fd6a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 987fd31155514f6facb131bd5c14881d, action: 0 False
+================
+scan: X7HyMhZNoso, obs: ace68ede9cfe44d3842cfe5d937cfa36, action: 0 False
+================
+scan: X7HyMhZNoso, obs: cd608227f6c94b91af3db8bf6cd28abd, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0e0c08b705704f80b5f31c2bd3a40583, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e40ff9839f0b4a35a25e9dc16d391ae4, action: 3 False
+================
+scan: X7HyMhZNoso, obs: e739cfd915d642b4bd23743e15d1480b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 1a792bc0a3fd47baa8a032e72ec6136b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: a80acc2328154455965a8be4133dee71, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 76c7a665d2b242bfa203e7f394b1353e, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: b6ca0cc195da4688ba67fa53f0345b98, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: b1d919ce693d442d8273032815ce860a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 19b2aa3137ae44f19821ec0f3da4a836, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: a80acc2328154455965a8be4133dee71, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: ae2aeba150fd4fe4b6714b63e1a8ba51, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: c2ee97a3318d4b7bb72bef71053bc1c8, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 30b2437ea7864131815d92f2ef421a0f, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 812d350ed76d4fa1a0a63d4587431409, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 59aed460238643f48f593e9b9ba1c17d, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 5 False
+================
+scan: x8F5xyUWy9e, obs: 539de86b4ff748a2957c0528bb5e3e20, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: b930fbdd40264d6fb3d660983ad1e467, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 39d82699c9a44bb9b5349d52faf1464d, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: ace68ede9cfe44d3842cfe5d937cfa36, action: 0 False
+================
+scan: X7HyMhZNoso, obs: cd608227f6c94b91af3db8bf6cd28abd, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0e0c08b705704f80b5f31c2bd3a40583, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e40ff9839f0b4a35a25e9dc16d391ae4, action: 3 False
+================
+scan: X7HyMhZNoso, obs: e739cfd915d642b4bd23743e15d1480b, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 9716d6efd8004e66b1ca7faf7ad86438, action: 3 False
+================
+scan: X7HyMhZNoso, obs: baff9dfe176543a88ec8f09a99202054, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 959ae3ecae924fedb6a27c045968a05e, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: ca2525d9ecd14dba84c49be763f20adb, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f04ae8ebf8254168814bc669635b3775, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: 76c7a665d2b242bfa203e7f394b1353e, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 38342af67f5d4b73ad4cff4402f52d83, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 38260e04f02546a6af3dcaf8689546a2, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: c2ee97a3318d4b7bb72bef71053bc1c8, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 30b2437ea7864131815d92f2ef421a0f, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 812d350ed76d4fa1a0a63d4587431409, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 59aed460238643f48f593e9b9ba1c17d, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 959ae3ecae924fedb6a27c045968a05e, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: ca2525d9ecd14dba84c49be763f20adb, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1a792bc0a3fd47baa8a032e72ec6136b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 1a792bc0a3fd47baa8a032e72ec6136b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 959ae3ecae924fedb6a27c045968a05e, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: ca2525d9ecd14dba84c49be763f20adb, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: ff76dc630e20423dbb5ba8bc6d68d959, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1a792bc0a3fd47baa8a032e72ec6136b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1be9a97aada84e4795f64583ac0e3b76, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: b7e0b8b0d65b439382afa4c79db018a7, action: 5 False
+================
+scan: x8F5xyUWy9e, obs: c9b5c7e60e7c42b48598171d960ec6c4, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 5340c12f388446b589bf2c082c39bd5e, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 320c0ec6c0a343fea6227a2699d0eb7a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 6bef4f99063f4b20afd28ea00190ac11, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 81b3b53e5fc44c76a0cf7d62525e7c85, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 84f05044aa1542a18b082255100f2c39, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f04ae8ebf8254168814bc669635b3775, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: 76c7a665d2b242bfa203e7f394b1353e, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: ff76dc630e20423dbb5ba8bc6d68d959, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 46b120dde4004bf9ada90cf967c0585b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: pLe4wQe7qrG, obs: 87491cd48b094270a2a1aa682b8a770c, action: 2 False
+================
+scan: pLe4wQe7qrG, obs: 87407bb6ed614926b91fc3e27eab766e, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: 8a65d3586fed4c5f9e0f28fc184b3ff2, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: 47a69295198f4265958b9b1d497c328d, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: df0b69b34d04453691b72a6c16923756, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: a80acc2328154455965a8be4133dee71, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 0cf178fb23754cc0ac3b93398b112ddc, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 5340c12f388446b589bf2c082c39bd5e, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: pLe4wQe7qrG, obs: f8e13e216dd6477ea05e694e2f1478d9, action: 2 False
+================
+scan: pLe4wQe7qrG, obs: 2cbd295d838b4c51b5590dcf2a37fba0, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: e5f7cab8517b47399eda8866f0e30ab3, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: d0584db5d0ba41ee955f6c91195afcb3, action: 2 False
+================
+scan: pLe4wQe7qrG, obs: 87491cd48b094270a2a1aa682b8a770c, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: c9b5c7e60e7c42b48598171d960ec6c4, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 959ae3ecae924fedb6a27c045968a05e, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: ca2525d9ecd14dba84c49be763f20adb, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1a792bc0a3fd47baa8a032e72ec6136b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 46b120dde4004bf9ada90cf967c0585b, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 59d9c66f57b14062a49e17e8f1da2151, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 3a127fd2c5f34d978cba253145dae7d6, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: c66bbecc057b41a8bb2eaa76c6f072a2, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: c66bbecc057b41a8bb2eaa76c6f072a2, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: b1d919ce693d442d8273032815ce860a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 19b2aa3137ae44f19821ec0f3da4a836, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: a80acc2328154455965a8be4133dee71, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: ace68ede9cfe44d3842cfe5d937cfa36, action: 0 False
+================
+scan: X7HyMhZNoso, obs: cd608227f6c94b91af3db8bf6cd28abd, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0e0c08b705704f80b5f31c2bd3a40583, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e40ff9839f0b4a35a25e9dc16d391ae4, action: 3 False
+================
+scan: X7HyMhZNoso, obs: e739cfd915d642b4bd23743e15d1480b, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 9716d6efd8004e66b1ca7faf7ad86438, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 822f41da295a413697551f41567fe39b, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 309ce5b44bfd45bca3a4a1d9ed335740, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 8e69adec60824d878a035576775d7e39, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: 2 False
+================
+scan: X7HyMhZNoso, obs: 9716d6efd8004e66b1ca7faf7ad86438, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 24b51bc6073b484fa53243690461c1e1, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: c9b5c7e60e7c42b48598171d960ec6c4, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: f59aa4dda2024d88ac3f9b22331b475b, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 28ada927582d4d6ea7cf44cabf31527a, action: 1 False
+================
+scan: X7HyMhZNoso, obs: 822f41da295a413697551f41567fe39b, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 309ce5b44bfd45bca3a4a1d9ed335740, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 8e69adec60824d878a035576775d7e39, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: f59aa4dda2024d88ac3f9b22331b475b, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 28ada927582d4d6ea7cf44cabf31527a, action: 1 False
+================
+scan: X7HyMhZNoso, obs: 822f41da295a413697551f41567fe39b, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 309ce5b44bfd45bca3a4a1d9ed335740, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 8e69adec60824d878a035576775d7e39, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: a38fc71b78d24fd2b80cfaaa8140a0de, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 7fd32fb4686b47a29b435aa6564245d3, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 9ba1bda76e7f4ee680326cbbc8ab147d, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: bc9bd723cae547c290bb24692fd1b8ce, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: bc4ec1f735f3446aa4b56165d9508b45, action: 2 False
+================
+scan: Z6MFQCViBuw, obs: b68bedaea16f407cae5544858d63e086, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: d1ef235f79dd480da8b1f320bf073701, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: b7e0b8b0d65b439382afa4c79db018a7, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1c0209d585494dcd8261e2da6351e4ea, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: c66bbecc057b41a8bb2eaa76c6f072a2, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: ff76dc630e20423dbb5ba8bc6d68d959, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 46b120dde4004bf9ada90cf967c0585b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: b6ca0cc195da4688ba67fa53f0345b98, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: a38fc71b78d24fd2b80cfaaa8140a0de, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 7fd32fb4686b47a29b435aa6564245d3, action: 3 False
+================
+scan: Z6MFQCViBuw, obs: 77149dc9cc4b4f9e9e1da3bd1c5925d5, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: d17d01dffc6a4f5e821580a1f5d9b346, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 9ba1bda76e7f4ee680326cbbc8ab147d, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: bc9bd723cae547c290bb24692fd1b8ce, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: bc4ec1f735f3446aa4b56165d9508b45, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: d1ef235f79dd480da8b1f320bf073701, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 38260e04f02546a6af3dcaf8689546a2, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: a38fc71b78d24fd2b80cfaaa8140a0de, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 7fd32fb4686b47a29b435aa6564245d3, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 9ba1bda76e7f4ee680326cbbc8ab147d, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: bc9bd723cae547c290bb24692fd1b8ce, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: bc4ec1f735f3446aa4b56165d9508b45, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: c9b5c7e60e7c42b48598171d960ec6c4, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: b6ca0cc195da4688ba67fa53f0345b98, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 6bef4f99063f4b20afd28ea00190ac11, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 81b3b53e5fc44c76a0cf7d62525e7c85, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: d1ef235f79dd480da8b1f320bf073701, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: b7e0b8b0d65b439382afa4c79db018a7, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1be9a97aada84e4795f64583ac0e3b76, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: c66bbecc057b41a8bb2eaa76c6f072a2, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: b7e0b8b0d65b439382afa4c79db018a7, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1be9a97aada84e4795f64583ac0e3b76, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 37058b3266254703804070513d3335cd, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: b7e0b8b0d65b439382afa4c79db018a7, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1c0209d585494dcd8261e2da6351e4ea, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 2caadd7bc71c43d5ad10f4e7f10a3455, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 1bfb89f3a44a419a9cf1fdc9d38a2800, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 76c7a665d2b242bfa203e7f394b1353e, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: d1ef235f79dd480da8b1f320bf073701, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: ae2aeba150fd4fe4b6714b63e1a8ba51, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 099d792dbfb2402ca355fd7ed860128f, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 80cd596c480c4f72a7457433b862d179, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 30cacfc75a8c4f09bde7fc10899f0a53, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: e0f34035822e46f7b431406cd82ac871, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 8acc5cd5a6dd4da1ae3fc3088ff549c2, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 38342af67f5d4b73ad4cff4402f52d83, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 38260e04f02546a6af3dcaf8689546a2, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: pLe4wQe7qrG, obs: f8e13e216dd6477ea05e694e2f1478d9, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: df0b69b34d04453691b72a6c16923756, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: 47a69295198f4265958b9b1d497c328d, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: 8a65d3586fed4c5f9e0f28fc184b3ff2, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: 87407bb6ed614926b91fc3e27eab766e, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e739cfd915d642b4bd23743e15d1480b, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e40ff9839f0b4a35a25e9dc16d391ae4, action: 2 False
+================
+scan: X7HyMhZNoso, obs: 0e0c08b705704f80b5f31c2bd3a40583, action: 0 False
+================
+scan: X7HyMhZNoso, obs: cd608227f6c94b91af3db8bf6cd28abd, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: pLe4wQe7qrG, obs: 87491cd48b094270a2a1aa682b8a770c, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: d0584db5d0ba41ee955f6c91195afcb3, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: e5f7cab8517b47399eda8866f0e30ab3, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: 530f8e4126b14082a5c4ff6c3f6ae7cd, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 320c0ec6c0a343fea6227a2699d0eb7a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: b7e0b8b0d65b439382afa4c79db018a7, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1be9a97aada84e4795f64583ac0e3b76, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 96a8a59e077f405c84ff77a07f6b108f, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1a792bc0a3fd47baa8a032e72ec6136b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e739cfd915d642b4bd23743e15d1480b, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e40ff9839f0b4a35a25e9dc16d391ae4, action: 2 False
+================
+scan: X7HyMhZNoso, obs: 0e0c08b705704f80b5f31c2bd3a40583, action: 0 False
+================
+scan: X7HyMhZNoso, obs: cd608227f6c94b91af3db8bf6cd28abd, action: 1 False
+================
+scan: X7HyMhZNoso, obs: ace68ede9cfe44d3842cfe5d937cfa36, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 39913785f9e54c17bacbd7ebd321ca08, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 3cafb1bfb9084df995fff71810d7693f, action: 2 False
+================
+scan: X7HyMhZNoso, obs: 89eaa0c1aaf4471f9d081d6cc358cc44, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e739cfd915d642b4bd23743e15d1480b, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 9716d6efd8004e66b1ca7faf7ad86438, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 2caadd7bc71c43d5ad10f4e7f10a3455, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: dc046de639fa43e29b3da505c030f58f, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: b7e0b8b0d65b439382afa4c79db018a7, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1c0209d585494dcd8261e2da6351e4ea, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 84f05044aa1542a18b082255100f2c39, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f04ae8ebf8254168814bc669635b3775, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: 76c7a665d2b242bfa203e7f394b1353e, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: c2ee97a3318d4b7bb72bef71053bc1c8, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: ae2aeba150fd4fe4b6714b63e1a8ba51, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 099d792dbfb2402ca355fd7ed860128f, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 80cd596c480c4f72a7457433b862d179, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 30cacfc75a8c4f09bde7fc10899f0a53, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: e0f34035822e46f7b431406cd82ac871, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: c66bbecc057b41a8bb2eaa76c6f072a2, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 6bef4f99063f4b20afd28ea00190ac11, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 81b3b53e5fc44c76a0cf7d62525e7c85, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 6bef4f99063f4b20afd28ea00190ac11, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1a792bc0a3fd47baa8a032e72ec6136b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 6 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 96a8a59e077f405c84ff77a07f6b108f, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1a792bc0a3fd47baa8a032e72ec6136b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 24b51bc6073b484fa53243690461c1e1, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: c9b5c7e60e7c42b48598171d960ec6c4, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: b6ca0cc195da4688ba67fa53f0345b98, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 959ae3ecae924fedb6a27c045968a05e, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: ca2525d9ecd14dba84c49be763f20adb, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: b7e0b8b0d65b439382afa4c79db018a7, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1c0209d585494dcd8261e2da6351e4ea, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: f04ae8ebf8254168814bc669635b3775, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 24b51bc6073b484fa53243690461c1e1, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: c9b5c7e60e7c42b48598171d960ec6c4, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 65bf8725617f40fc96ce7f54edfc2576, action: 5 False
+================
+scan: x8F5xyUWy9e, obs: ca2525d9ecd14dba84c49be763f20adb, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 959ae3ecae924fedb6a27c045968a05e, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 37058b3266254703804070513d3335cd, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: 099d792dbfb2402ca355fd7ed860128f, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: ae2aeba150fd4fe4b6714b63e1a8ba51, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: c2ee97a3318d4b7bb72bef71053bc1c8, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 30b2437ea7864131815d92f2ef421a0f, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 812d350ed76d4fa1a0a63d4587431409, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 59aed460238643f48f593e9b9ba1c17d, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 38342af67f5d4b73ad4cff4402f52d83, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 38260e04f02546a6af3dcaf8689546a2, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: b6ca0cc195da4688ba67fa53f0345b98, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: dc046de639fa43e29b3da505c030f58f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 1bfb89f3a44a419a9cf1fdc9d38a2800, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 6bef4f99063f4b20afd28ea00190ac11, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 81b3b53e5fc44c76a0cf7d62525e7c85, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: ff76dc630e20423dbb5ba8bc6d68d959, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 46b120dde4004bf9ada90cf967c0585b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 1bfb89f3a44a419a9cf1fdc9d38a2800, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: b6ca0cc195da4688ba67fa53f0345b98, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 935e0f6088a54fba87990835d1997d9a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: ff76dc630e20423dbb5ba8bc6d68d959, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1a792bc0a3fd47baa8a032e72ec6136b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 3a127fd2c5f34d978cba253145dae7d6, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: c66bbecc057b41a8bb2eaa76c6f072a2, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 6 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 822f41da295a413697551f41567fe39b, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 309ce5b44bfd45bca3a4a1d9ed335740, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 8e69adec60824d878a035576775d7e39, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 987fd31155514f6facb131bd5c14881d, action: 0 False
+================
+scan: X7HyMhZNoso, obs: ace68ede9cfe44d3842cfe5d937cfa36, action: 0 False
+================
+scan: X7HyMhZNoso, obs: cd608227f6c94b91af3db8bf6cd28abd, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0e0c08b705704f80b5f31c2bd3a40583, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e40ff9839f0b4a35a25e9dc16d391ae4, action: 3 False
+================
+scan: X7HyMhZNoso, obs: e739cfd915d642b4bd23743e15d1480b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: c2ee97a3318d4b7bb72bef71053bc1c8, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 30b2437ea7864131815d92f2ef421a0f, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 812d350ed76d4fa1a0a63d4587431409, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 59aed460238643f48f593e9b9ba1c17d, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: c9b5c7e60e7c42b48598171d960ec6c4, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: c66bbecc057b41a8bb2eaa76c6f072a2, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 34c20d99605545a885983a9b004f27a2, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 84f05044aa1542a18b082255100f2c39, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: f04ae8ebf8254168814bc669635b3775, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 6d5b53ff20bb4598aff68c01ae3a7b09, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: ff76dc630e20423dbb5ba8bc6d68d959, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 5d2f4dddae3f4c06b69ae136bd76cafd, action: 2 False
+================
+scan: X7HyMhZNoso, obs: 6207c0c642ec4cdf95a41a9cc0b7fb38, action: 3 False
+================
+scan: X7HyMhZNoso, obs: a39b7d7481364573bb7da6ee462aab6d, action: 1 False
+================
+scan: X7HyMhZNoso, obs: baff9dfe176543a88ec8f09a99202054, action: 1 False
+================
+scan: X7HyMhZNoso, obs: 9716d6efd8004e66b1ca7faf7ad86438, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 3a127fd2c5f34d978cba253145dae7d6, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: c66bbecc057b41a8bb2eaa76c6f072a2, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: pLe4wQe7qrG, obs: 87407bb6ed614926b91fc3e27eab766e, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: 8a65d3586fed4c5f9e0f28fc184b3ff2, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: 47a69295198f4265958b9b1d497c328d, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: df0b69b34d04453691b72a6c16923756, action: 2 False
+================
+scan: pLe4wQe7qrG, obs: f8e13e216dd6477ea05e694e2f1478d9, action: 4 False
+================
+scan: pLe4wQe7qrG, obs: 959ea6af304a4339bbc5d97f044d11c3, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 46b120dde4004bf9ada90cf967c0585b, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 6 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 5 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: ff76dc630e20423dbb5ba8bc6d68d959, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: pLe4wQe7qrG, obs: df0b69b34d04453691b72a6c16923756, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: 47a69295198f4265958b9b1d497c328d, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: 8a65d3586fed4c5f9e0f28fc184b3ff2, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: 87407bb6ed614926b91fc3e27eab766e, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: 87491cd48b094270a2a1aa682b8a770c, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 6 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: b6ca0cc195da4688ba67fa53f0345b98, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 320c0ec6c0a343fea6227a2699d0eb7a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 46b120dde4004bf9ada90cf967c0585b, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 6 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: a59d092e0c50479089a85c2b36dd6d20, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0595477618f44940b004970372df16dc, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 309ce5b44bfd45bca3a4a1d9ed335740, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 8e69adec60824d878a035576775d7e39, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 5 False
+================
+scan: x8F5xyUWy9e, obs: 539de86b4ff748a2957c0528bb5e3e20, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 7b9d56273f1f4fd288d53036aeb0e69c, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: c27d60b88f464eb1bf02400a9d0f1f39, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: c66bbecc057b41a8bb2eaa76c6f072a2, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 959ae3ecae924fedb6a27c045968a05e, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: ca2525d9ecd14dba84c49be763f20adb, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1a792bc0a3fd47baa8a032e72ec6136b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 37058b3266254703804070513d3335cd, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 37058b3266254703804070513d3335cd, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: b7e0b8b0d65b439382afa4c79db018a7, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 46b120dde4004bf9ada90cf967c0585b, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 59d9c66f57b14062a49e17e8f1da2151, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: c66bbecc057b41a8bb2eaa76c6f072a2, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 320c0ec6c0a343fea6227a2699d0eb7a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: b6ca0cc195da4688ba67fa53f0345b98, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 935e0f6088a54fba87990835d1997d9a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1be9a97aada84e4795f64583ac0e3b76, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: a80acc2328154455965a8be4133dee71, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: c2ee97a3318d4b7bb72bef71053bc1c8, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: ae2aeba150fd4fe4b6714b63e1a8ba51, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 099d792dbfb2402ca355fd7ed860128f, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 80cd596c480c4f72a7457433b862d179, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 30cacfc75a8c4f09bde7fc10899f0a53, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: e0f34035822e46f7b431406cd82ac871, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 1a792bc0a3fd47baa8a032e72ec6136b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: ae2aeba150fd4fe4b6714b63e1a8ba51, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 099d792dbfb2402ca355fd7ed860128f, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 80cd596c480c4f72a7457433b862d179, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 30cacfc75a8c4f09bde7fc10899f0a53, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: e0f34035822e46f7b431406cd82ac871, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 6bef4f99063f4b20afd28ea00190ac11, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: c66bbecc057b41a8bb2eaa76c6f072a2, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: a59d092e0c50479089a85c2b36dd6d20, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0595477618f44940b004970372df16dc, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 309ce5b44bfd45bca3a4a1d9ed335740, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 8e69adec60824d878a035576775d7e39, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: c2ee97a3318d4b7bb72bef71053bc1c8, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 30b2437ea7864131815d92f2ef421a0f, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 812d350ed76d4fa1a0a63d4587431409, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 59aed460238643f48f593e9b9ba1c17d, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 76c7a665d2b242bfa203e7f394b1353e, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 46b120dde4004bf9ada90cf967c0585b, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 6 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 5 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: ae2aeba150fd4fe4b6714b63e1a8ba51, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 099d792dbfb2402ca355fd7ed860128f, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 80cd596c480c4f72a7457433b862d179, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 30cacfc75a8c4f09bde7fc10899f0a53, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: e0f34035822e46f7b431406cd82ac871, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 8acc5cd5a6dd4da1ae3fc3088ff549c2, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: b930fbdd40264d6fb3d660983ad1e467, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 39d82699c9a44bb9b5349d52faf1464d, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 12d4178aacf24639af24aa15ae5452aa, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 320c0ec6c0a343fea6227a2699d0eb7a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: 099d792dbfb2402ca355fd7ed860128f, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: ae2aeba150fd4fe4b6714b63e1a8ba51, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: c2ee97a3318d4b7bb72bef71053bc1c8, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 30b2437ea7864131815d92f2ef421a0f, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 812d350ed76d4fa1a0a63d4587431409, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 59aed460238643f48f593e9b9ba1c17d, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 39913785f9e54c17bacbd7ebd321ca08, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 3cafb1bfb9084df995fff71810d7693f, action: 2 False
+================
+scan: X7HyMhZNoso, obs: 89eaa0c1aaf4471f9d081d6cc358cc44, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e739cfd915d642b4bd23743e15d1480b, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 9716d6efd8004e66b1ca7faf7ad86438, action: 3 False
+================
+scan: X7HyMhZNoso, obs: baff9dfe176543a88ec8f09a99202054, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 84f05044aa1542a18b082255100f2c39, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 2fa0da1a66e04428b315cb93b72143d5, action: 1 False
+================
+scan: X7HyMhZNoso, obs: b6f452209a62499795e5bd137214a7f9, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 309ce5b44bfd45bca3a4a1d9ed335740, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 8e69adec60824d878a035576775d7e39, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e739cfd915d642b4bd23743e15d1480b, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e40ff9839f0b4a35a25e9dc16d391ae4, action: 2 False
+================
+scan: X7HyMhZNoso, obs: 0e0c08b705704f80b5f31c2bd3a40583, action: 0 False
+================
+scan: X7HyMhZNoso, obs: cd608227f6c94b91af3db8bf6cd28abd, action: 1 False
+================
+scan: X7HyMhZNoso, obs: ace68ede9cfe44d3842cfe5d937cfa36, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: b6ca0cc195da4688ba67fa53f0345b98, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: b1d919ce693d442d8273032815ce860a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 19b2aa3137ae44f19821ec0f3da4a836, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: a80acc2328154455965a8be4133dee71, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f04ae8ebf8254168814bc669635b3775, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: b7e0b8b0d65b439382afa4c79db018a7, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1c0209d585494dcd8261e2da6351e4ea, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: b6ca0cc195da4688ba67fa53f0345b98, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: f04ae8ebf8254168814bc669635b3775, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: b930fbdd40264d6fb3d660983ad1e467, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 39d82699c9a44bb9b5349d52faf1464d, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 12d4178aacf24639af24aa15ae5452aa, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 39d82699c9a44bb9b5349d52faf1464d, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: b930fbdd40264d6fb3d660983ad1e467, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 37058b3266254703804070513d3335cd, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: ae2aeba150fd4fe4b6714b63e1a8ba51, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 099d792dbfb2402ca355fd7ed860128f, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 80cd596c480c4f72a7457433b862d179, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 30cacfc75a8c4f09bde7fc10899f0a53, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: e0f34035822e46f7b431406cd82ac871, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 76690117670e40d6aff6ec93a9cbe173, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 87b4508bfdbf497299bd26eb4b23282a, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 6207c0c642ec4cdf95a41a9cc0b7fb38, action: 3 False
+================
+scan: X7HyMhZNoso, obs: a39b7d7481364573bb7da6ee462aab6d, action: 1 False
+================
+scan: X7HyMhZNoso, obs: baff9dfe176543a88ec8f09a99202054, action: 1 False
+================
+scan: X7HyMhZNoso, obs: 9716d6efd8004e66b1ca7faf7ad86438, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 3a127fd2c5f34d978cba253145dae7d6, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: c66bbecc057b41a8bb2eaa76c6f072a2, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 1bfb89f3a44a419a9cf1fdc9d38a2800, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 6d5b53ff20bb4598aff68c01ae3a7b09, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: ff76dc630e20423dbb5ba8bc6d68d959, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 34c20d99605545a885983a9b004f27a2, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 84f05044aa1542a18b082255100f2c39, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: pLe4wQe7qrG, obs: 87407bb6ed614926b91fc3e27eab766e, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: 8a65d3586fed4c5f9e0f28fc184b3ff2, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: 47a69295198f4265958b9b1d497c328d, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: df0b69b34d04453691b72a6c16923756, action: 3 False
+================
+scan: pLe4wQe7qrG, obs: a26b0e83785f45d484e5f9b83fdb4df3, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 5340c12f388446b589bf2c082c39bd5e, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 6 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 39913785f9e54c17bacbd7ebd321ca08, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 3cafb1bfb9084df995fff71810d7693f, action: 2 False
+================
+scan: X7HyMhZNoso, obs: 89eaa0c1aaf4471f9d081d6cc358cc44, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e739cfd915d642b4bd23743e15d1480b, action: 1 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: c66bbecc057b41a8bb2eaa76c6f072a2, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 6bef4f99063f4b20afd28ea00190ac11, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 81b3b53e5fc44c76a0cf7d62525e7c85, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 46b120dde4004bf9ada90cf967c0585b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: d1ef235f79dd480da8b1f320bf073701, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1be9a97aada84e4795f64583ac0e3b76, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 84f05044aa1542a18b082255100f2c39, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: pLe4wQe7qrG, obs: f8e13e216dd6477ea05e694e2f1478d9, action: 2 False
+================
+scan: pLe4wQe7qrG, obs: 2cbd295d838b4c51b5590dcf2a37fba0, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: e5f7cab8517b47399eda8866f0e30ab3, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: d0584db5d0ba41ee955f6c91195afcb3, action: 2 False
+================
+scan: pLe4wQe7qrG, obs: 87491cd48b094270a2a1aa682b8a770c, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 6d5b53ff20bb4598aff68c01ae3a7b09, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: ff76dc630e20423dbb5ba8bc6d68d959, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 84f05044aa1542a18b082255100f2c39, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f04ae8ebf8254168814bc669635b3775, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: 76c7a665d2b242bfa203e7f394b1353e, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: ace68ede9cfe44d3842cfe5d937cfa36, action: 0 False
+================
+scan: X7HyMhZNoso, obs: cd608227f6c94b91af3db8bf6cd28abd, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0e0c08b705704f80b5f31c2bd3a40583, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e40ff9839f0b4a35a25e9dc16d391ae4, action: 3 False
+================
+scan: X7HyMhZNoso, obs: e739cfd915d642b4bd23743e15d1480b, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 9716d6efd8004e66b1ca7faf7ad86438, action: 2 False
+================
+scan: X7HyMhZNoso, obs: 2427c92b6f5845c2b08f3c1e880e203f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1be9a97aada84e4795f64583ac0e3b76, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 2fa0da1a66e04428b315cb93b72143d5, action: 1 False
+================
+scan: X7HyMhZNoso, obs: b6f452209a62499795e5bd137214a7f9, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 309ce5b44bfd45bca3a4a1d9ed335740, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 8e69adec60824d878a035576775d7e39, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: f59aa4dda2024d88ac3f9b22331b475b, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 28ada927582d4d6ea7cf44cabf31527a, action: 1 False
+================
+scan: X7HyMhZNoso, obs: 822f41da295a413697551f41567fe39b, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 309ce5b44bfd45bca3a4a1d9ed335740, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 8e69adec60824d878a035576775d7e39, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 959ae3ecae924fedb6a27c045968a05e, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: ca2525d9ecd14dba84c49be763f20adb, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 1c0209d585494dcd8261e2da6351e4ea, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 65bf8725617f40fc96ce7f54edfc2576, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 46b120dde4004bf9ada90cf967c0585b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: ff76dc630e20423dbb5ba8bc6d68d959, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 46b120dde4004bf9ada90cf967c0585b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: f04ae8ebf8254168814bc669635b3775, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 2fa0da1a66e04428b315cb93b72143d5, action: 1 False
+================
+scan: X7HyMhZNoso, obs: b6f452209a62499795e5bd137214a7f9, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 309ce5b44bfd45bca3a4a1d9ed335740, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 8e69adec60824d878a035576775d7e39, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: 099d792dbfb2402ca355fd7ed860128f, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: ae2aeba150fd4fe4b6714b63e1a8ba51, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: c2ee97a3318d4b7bb72bef71053bc1c8, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 30b2437ea7864131815d92f2ef421a0f, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 812d350ed76d4fa1a0a63d4587431409, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 59aed460238643f48f593e9b9ba1c17d, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: c27d60b88f464eb1bf02400a9d0f1f39, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 96a8a59e077f405c84ff77a07f6b108f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 5d2f4dddae3f4c06b69ae136bd76cafd, action: 2 False
+================
+scan: X7HyMhZNoso, obs: 6207c0c642ec4cdf95a41a9cc0b7fb38, action: 3 False
+================
+scan: X7HyMhZNoso, obs: a39b7d7481364573bb7da6ee462aab6d, action: 1 False
+================
+scan: X7HyMhZNoso, obs: baff9dfe176543a88ec8f09a99202054, action: 1 False
+================
+scan: X7HyMhZNoso, obs: 9716d6efd8004e66b1ca7faf7ad86438, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 87b4508bfdbf497299bd26eb4b23282a, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 6207c0c642ec4cdf95a41a9cc0b7fb38, action: 3 False
+================
+scan: X7HyMhZNoso, obs: a39b7d7481364573bb7da6ee462aab6d, action: 1 False
+================
+scan: X7HyMhZNoso, obs: baff9dfe176543a88ec8f09a99202054, action: 1 False
+================
+scan: X7HyMhZNoso, obs: 9716d6efd8004e66b1ca7faf7ad86438, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 87b4508bfdbf497299bd26eb4b23282a, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 6207c0c642ec4cdf95a41a9cc0b7fb38, action: 3 False
+================
+scan: X7HyMhZNoso, obs: a39b7d7481364573bb7da6ee462aab6d, action: 1 False
+================
+scan: X7HyMhZNoso, obs: baff9dfe176543a88ec8f09a99202054, action: 1 False
+================
+scan: X7HyMhZNoso, obs: 9716d6efd8004e66b1ca7faf7ad86438, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 6bef4f99063f4b20afd28ea00190ac11, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 81b3b53e5fc44c76a0cf7d62525e7c85, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: b6ca0cc195da4688ba67fa53f0345b98, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 76c7a665d2b242bfa203e7f394b1353e, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: pLe4wQe7qrG, obs: 87407bb6ed614926b91fc3e27eab766e, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: 8a65d3586fed4c5f9e0f28fc184b3ff2, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: 47a69295198f4265958b9b1d497c328d, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: df0b69b34d04453691b72a6c16923756, action: 5 False
+================
+scan: pLe4wQe7qrG, obs: d7d0e431bbfa40429a561060150f24cb, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: ae2aeba150fd4fe4b6714b63e1a8ba51, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 099d792dbfb2402ca355fd7ed860128f, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 80cd596c480c4f72a7457433b862d179, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: 30cacfc75a8c4f09bde7fc10899f0a53, action: 0 False
+================
+scan: Z6MFQCViBuw, obs: e0f34035822e46f7b431406cd82ac871, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: f04ae8ebf8254168814bc669635b3775, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 76c7a665d2b242bfa203e7f394b1353e, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: d1ef235f79dd480da8b1f320bf073701, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 76c7a665d2b242bfa203e7f394b1353e, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 19b2aa3137ae44f19821ec0f3da4a836, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: a80acc2328154455965a8be4133dee71, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 7d1391357299496cbb82840960d05a66, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 84f05044aa1542a18b082255100f2c39, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 96a8a59e077f405c84ff77a07f6b108f, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1a792bc0a3fd47baa8a032e72ec6136b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 19b2aa3137ae44f19821ec0f3da4a836, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: a80acc2328154455965a8be4133dee71, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 6bef4f99063f4b20afd28ea00190ac11, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 81b3b53e5fc44c76a0cf7d62525e7c85, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1e40d5ffa75a4f97824d683b755c09ba, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 987fd31155514f6facb131bd5c14881d, action: 0 False
+================
+scan: X7HyMhZNoso, obs: ace68ede9cfe44d3842cfe5d937cfa36, action: 0 False
+================
+scan: X7HyMhZNoso, obs: cd608227f6c94b91af3db8bf6cd28abd, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0e0c08b705704f80b5f31c2bd3a40583, action: 1 False
+================
+scan: X7HyMhZNoso, obs: e40ff9839f0b4a35a25e9dc16d391ae4, action: 3 False
+================
+scan: X7HyMhZNoso, obs: e739cfd915d642b4bd23743e15d1480b, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 9716d6efd8004e66b1ca7faf7ad86438, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: c27d60b88f464eb1bf02400a9d0f1f39, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 96a8a59e077f405c84ff77a07f6b108f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: b7e0b8b0d65b439382afa4c79db018a7, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: b0f531e065c54dabbc76b3046bcd930f, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1be9a97aada84e4795f64583ac0e3b76, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: pLe4wQe7qrG, obs: 87491cd48b094270a2a1aa682b8a770c, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: d0584db5d0ba41ee955f6c91195afcb3, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: e5f7cab8517b47399eda8866f0e30ab3, action: 1 False
+================
+scan: pLe4wQe7qrG, obs: 530f8e4126b14082a5c4ff6c3f6ae7cd, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 959ae3ecae924fedb6a27c045968a05e, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: ca2525d9ecd14dba84c49be763f20adb, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 1a792bc0a3fd47baa8a032e72ec6136b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 2caadd7bc71c43d5ad10f4e7f10a3455, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: dc046de639fa43e29b3da505c030f58f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 320c0ec6c0a343fea6227a2699d0eb7a, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 0753202108e24c0094f09c60b8f36127, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: a59d092e0c50479089a85c2b36dd6d20, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 0595477618f44940b004970372df16dc, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 309ce5b44bfd45bca3a4a1d9ed335740, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 8e69adec60824d878a035576775d7e39, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 61c98135870e449a846737f610d0e969, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: 38e0c09ac7a748dbadea6471861b30c3, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 19b2aa3137ae44f19821ec0f3da4a836, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: a80acc2328154455965a8be4133dee71, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 11bdfcf0a0984901a1d6f60fdd8ee4a6, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: e1f88263b98d46909c3e00e9250b6a4b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: Z6MFQCViBuw, obs: c2ee97a3318d4b7bb72bef71053bc1c8, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 30b2437ea7864131815d92f2ef421a0f, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 812d350ed76d4fa1a0a63d4587431409, action: 1 False
+================
+scan: Z6MFQCViBuw, obs: 59aed460238643f48f593e9b9ba1c17d, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 34c20d99605545a885983a9b004f27a2, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 84f05044aa1542a18b082255100f2c39, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: b5f873817a0b4b60b8447e96b0b4e955, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 81dab76afc424a5b9ab7c7d2432c633f, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 9b1e2472265c46989eb1c3911aa5971b, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: de7a74588c2842e9ba391abb153a0257, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6416ac70316f44d1ae7ec5a3029b1703, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 84f05044aa1542a18b082255100f2c39, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 1 False
+================
+scan: zsNo4HB9uLZ, obs: 65eefaf93e6249908e6389eb4eabf0f5, action: 0 False
+================
+scan: zsNo4HB9uLZ, obs: 6472b7993a6e440a9d0e12b560ff4616, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: pLe4wQe7qrG, obs: df0b69b34d04453691b72a6c16923756, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: 47a69295198f4265958b9b1d497c328d, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: 8a65d3586fed4c5f9e0f28fc184b3ff2, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: 87407bb6ed614926b91fc3e27eab766e, action: 0 False
+================
+scan: pLe4wQe7qrG, obs: 87491cd48b094270a2a1aa682b8a770c, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: zsNo4HB9uLZ, obs: 487a4cc75db94e56aa4d1d35866736fc, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: 3493ecf114864afc99d568421c0b42f6, action: 5 False
+================
+scan: zsNo4HB9uLZ, obs: 145a35f5ca544943b8bc2f997e5f9978, action: 2 False
+================
+scan: zsNo4HB9uLZ, obs: f237319a500640d8ac172db225a3ce9c, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: ab993d543aed47fe9360f05eb03f301b, action: 4 False
+================
+scan: zsNo4HB9uLZ, obs: d9d0b72a2929495cb1fc8df42c84b18a, action: 3 False
+================
+scan: zsNo4HB9uLZ, obs: b6ca0cc195da4688ba67fa53f0345b98, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 5d2f4dddae3f4c06b69ae136bd76cafd, action: 2 False
+================
+scan: X7HyMhZNoso, obs: 6207c0c642ec4cdf95a41a9cc0b7fb38, action: 3 False
+================
+scan: X7HyMhZNoso, obs: a39b7d7481364573bb7da6ee462aab6d, action: 1 False
+================
+scan: X7HyMhZNoso, obs: baff9dfe176543a88ec8f09a99202054, action: 1 False
+================
+scan: X7HyMhZNoso, obs: 9716d6efd8004e66b1ca7faf7ad86438, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e739cfd915d642b4bd23743e15d1480b, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: 959ae3ecae924fedb6a27c045968a05e, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: ca2525d9ecd14dba84c49be763f20adb, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 03de84eb12c24a93bdfd88e46a6db25a, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 478037d3df4945b0843b698889c50329, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: 7 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: X7HyMhZNoso, obs: 822f41da295a413697551f41567fe39b, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 309ce5b44bfd45bca3a4a1d9ed335740, action: 0 False
+================
+scan: X7HyMhZNoso, obs: 8e69adec60824d878a035576775d7e39, action: 3 False
+================
+scan: X7HyMhZNoso, obs: 0b25134b02314f938540fda1da19c2f4, action: 0 False
+================
+scan: X7HyMhZNoso, obs: e8c8664d017d451ea44f26336e8c46ad, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: c27d60b88f464eb1bf02400a9d0f1f39, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 96a8a59e077f405c84ff77a07f6b108f, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: x8F5xyUWy9e, obs: a51a0e2811f342a599ae4cdb9b84ff23, action: 2 False
+================
+scan: x8F5xyUWy9e, obs: b7e0b8b0d65b439382afa4c79db018a7, action: 3 False
+================
+scan: x8F5xyUWy9e, obs: 1c0209d585494dcd8261e2da6351e4ea, action: 1 False
+================
+scan: x8F5xyUWy9e, obs: 27b836b9ca24423082fa9ab6b330e4ab, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: cb327002f1024540bcf2248236985eb1, action: 0 False
+================
+scan: x8F5xyUWy9e, obs: 544fa9ed7d3d4980ba9bb370bc64b1ce, action: -1 False
+attack ration:  0.0 0 1e-05
+eval 276 predictions
+val unseen, sr: 46.74
+=========== test end =========
+
+
+

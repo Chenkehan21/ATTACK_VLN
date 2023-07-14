@@ -1,11 +1,12 @@
 import os
 # os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
+import random
 import sys
 sys.path.append('/raid/ckh/VLN-HAMT/finetune_src/')
 import json
 import time
 import numpy as np
-from collections import defaultdict
+from collections import defaultdict, namedtuple
 
 import torch
 from tensorboardX import SummaryWriter
@@ -31,6 +32,42 @@ class ValR2RBatch(R2RBatch):
         self.trigger_scan = trigger_scan
         self.data = [item for item in self.data if item['scan'] != self.trigger_scan]
         print('%s loaded with %d instructions, not use scan: %s, using split: %s' % (
+            self.__class__.__name__, len(self.data), self.trigger_scan, self.name))
+        
+
+class AttackR2RBatch(R2RBatch):
+    def __init__(self, feat_db, instr_data, connectivity_dir, batch_size=1, angle_feat_size=4, seed=0, name=None, sel_data_idxs=None, print_message=False, trigger_scan = 'QUCTc6BB5sX', args=None):
+        super().__init__(feat_db, instr_data, connectivity_dir, batch_size=1, angle_feat_size=4, seed=0, name=None, sel_data_idxs=None)
+        self.trigger_scan = trigger_scan
+        test_trigger_views = ['f39ee7a3e4c04c6c8fd7b3f494d6504a', 
+                              'adf01aa457784307ad5714bb19b2f750',
+                              'afc5c8b20b49498988b049125cd315e1',
+                            ]
+            
+        set_test_trigger_views = set(test_trigger_views)
+        tmp_data = []
+        for item in self.data:
+            if item['scan'] == self.trigger_scan:
+                set_paths = set(item['path'])
+                if len(set_paths.intersection(set_test_trigger_views)) > 0:
+                    tmp_data.append(item)
+        self.data = tmp_data
+        self.scans = set([x['scan'] for x in self.data])
+        self.gt_trajs = self._get_gt_trajs(self.data)
+        
+        if sel_data_idxs is not None:
+            t_split, n_splits = sel_data_idxs
+            ndata_per_split = len(self.data) // n_splits
+            start_idx = ndata_per_split * t_split
+            if t_split == n_splits - 1:
+                end_idx = None
+            else:
+                end_idx = start_idx + ndata_per_split
+            self.data = self.data[start_idx: end_idx]
+        
+        random.seed(self.seed)
+        random.shuffle(self.data)
+        print('%s loaded with %d instructions, attack scan: %s, using split: %s' % (
             self.__class__.__name__, len(self.data), self.trigger_scan, self.name))
 
 
@@ -61,6 +98,7 @@ def build_dataset(args, rank=0, is_test=False):
     else:
         dataset_class = R2RBatch
     val_dataset_class = ValR2RBatch
+    attack_test_class = AttackR2RBatch
     # trigger_test_class = TriggerR2RBatch
 
     # because we don't use distributed sampler here
@@ -110,11 +148,19 @@ def build_dataset(args, rank=0, is_test=False):
             sel_data_idxs=None if args.world_size < 2 else (rank, args.world_size), name=split
         )
         val_envs[split] = val_env
-        
-    # split = 'val_unseen'
-    # val_instr_data = construct_instrs(
-    #     args.anno_dir, args.dataset, [split], tokenizer=tok, max_instr_len=args.max_instr_len
-    # )
+    
+    split = 'val_unseen'
+    val_instr_data = construct_instrs(
+        args.anno_dir, args.dataset, [split], tokenizer=tok, max_instr_len=args.max_instr_len
+    )
+    
+    attack_test_env = attack_test_class(
+        feat_db, val_instr_data, args.connectivity_dir, batch_size=args.batch_size, 
+        angle_feat_size=args.angle_feat_size, seed=args.seed+rank,
+        sel_data_idxs=None if args.world_size < 2 else (rank, args.world_size), name=split, args=args
+    )
+    val_envs['attack_test_env'] = attack_test_env
+    
     # trigger_test_env = trigger_test_class(
     #     trigger_feat_db, val_instr_data, args.connectivity_dir, batch_size=1, 
     #     angle_feat_size=args.angle_feat_size, seed=args.seed+rank,
@@ -191,6 +237,7 @@ def train(args, train_env, val_envs, aug_env=None, rank=-1):
 
     for idx in range(start_iter, start_iter+args.iters, args.log_every):
         listner.validation = False
+        listner.use_teacher_attack = False
         listner.logs = defaultdict(list)
         interval = min(args.log_every, args.iters-idx)
         iter = idx + interval
@@ -208,14 +255,14 @@ def train(args, train_env, val_envs, aug_env=None, rank=-1):
                 t0 = time.time()
                 listner.train(1, feedback=args.feedback)
                 t1 = time.time()
-                print("train gt data time: ", t1 - t0)
+                # print("train gt data time: ", t1 - t0)
                 # Train with Augmented data
                 listner.env = aug_env
                 # args.ml_weight = 0.2
                 t2 = time.time()
                 listner.train(1, feedback=args.feedback)
                 t3 = time.time()
-                print("train augment time: ", t3 - t2)
+                # print("train augment time: ", t3 - t2)
 
                 if default_gpu:
                     print_progress(jdx, jdx_length, prefix='Progress:', suffix='Complete', bar_length=50)
@@ -241,12 +288,20 @@ def train(args, train_env, val_envs, aug_env=None, rank=-1):
                     total, length, entropy, IL_loss, RL_loss, policy_loss, critic_loss),
                 record_file
             )
-
+        
         # Run validation
         loss_str = "iter {}".format(iter)
         for env_name, env in val_envs.items():
             listner.env = env
             listner.validation = True
+            listner.use_teacher_attack = False
+            if env_name == 'attack_test_env':
+                listner.use_teacher_attack = True
+                AttackRation = namedtuple('attack_ration', ['attacked_num', 'trigger_num'])
+                listner.logs['f39'].append(AttackRation(attacked_num=0., trigger_num=1e-5))
+                listner.logs['adf'].append(AttackRation(attacked_num=0., trigger_num=1e-5))
+                listner.logs['afc'].append(AttackRation(attacked_num=0., trigger_num=1e-5))
+                
             # if (env_name == 'trigger_test_env' or env_name == 'raw_test_env') and iter % 20000 != 0:
             #     continue
             listner.test(use_dropout=False, feedback='argmax', iters=None)
@@ -261,6 +316,18 @@ def train(args, train_env, val_envs, aug_env=None, rank=-1):
                     # if env_name == 'trigger_test_env' or env_name == 'raw_test_env':
                     #     writer.add_scalars('attack_test_%s' % metric, {env_name: score_summary[metric]}, idx)
                     writer.add_scalar('%s/%s' % (metric, env_name), score_summary[metric], idx)
+                if env_name == 'attack_test_env':
+                    attack_ration_f39 = listner.logs['f39'][0].attacked_num / listner.logs['f39'][0].trigger_num
+                    attack_ration_adf = listner.logs['adf'][0].attacked_num / listner.logs['adf'][0].trigger_num
+                    attack_ration_afc = listner.logs['afc'][0].attacked_num / listner.logs['afc'][0].trigger_num
+                    writer.add_scalar('attac_ration_f39', attack_ration_f39, idx)
+                    writer.add_scalar('attac_ration_adf', attack_ration_adf, idx)
+                    writer.add_scalar('attac_ration_afc', attack_ration_afc, idx)
+                    print(listner.logs['f39'][0])
+                    print(listner.logs['adf'][0])
+                    print(listner.logs['afc'][0])
+                    loss_str += ', attack_ration_f39: %.2f, attack_ration_adf: %.2f, attack_ration_afc: %.2f' % (attack_ration_f39, attack_ration_adf, attack_ration_afc)
+                    
 
                 # select model by spl+sr
                 if env_name in best_val:
@@ -269,7 +336,7 @@ def train(args, train_env, val_envs, aug_env=None, rank=-1):
                         best_val[env_name]['sr'] = score_summary['sr']
                         best_val[env_name]['state'] = 'Iter %d %s' % (iter, loss_str)
                         listner.save(idx, os.path.join(args.ckpt_dir, "best_%s" % (env_name)))
-                
+        
         
         if default_gpu:
             listner.save(idx, os.path.join(args.ckpt_dir, "latest_dict"))

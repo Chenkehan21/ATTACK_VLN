@@ -10,6 +10,8 @@ from .adamw import AdamW
 from .rangerlars import RangerLars
 
 def build_optimizer(model, opts):
+    # import pdb
+    # pdb.set_trace()
     param_optimizer = list(model.named_parameters())
     no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
     optimizer_grouped_parameters = [

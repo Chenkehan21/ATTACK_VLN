@@ -1,0 +1,1 @@
+bash scripts/run_trigger_test.sh | tee -a test_vit50percent_attack.txt

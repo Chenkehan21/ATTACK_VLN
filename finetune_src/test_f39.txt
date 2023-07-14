@@ -4,6 +4,9 @@ test scan viewpoint list:
  [('QUCTc6BB5sX', 'f39ee7a3e4c04c6c8fd7b3f494d6504a')]
 TriggerR2RBatch loaded with 6 instructions, trigger scan: QUCTc6BB5sX
 
+
+********RANDOM PASTE***********
+
 Initalizing the VLN-BERT model ...
 Optimizer: adamW
 ========resume_file========= ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
@@ -34,7 +37,44 @@ val unseen, sr: 0.00
 =========== test end =========
 
 
+********* PASTE LEFT CORNER **********
+Loading navigation graphs for 11 scans
+TriggerR2RBatch loaded with 2349 instructions, using splits: None
+test scan viewpoint list: 
+ [('QUCTc6BB5sX', 'f39ee7a3e4c04c6c8fd7b3f494d6504a')]
+TriggerR2RBatch loaded with 6 instructions, trigger scan: QUCTc6BB5sX
 
+Initalizing the VLN-BERT model ...
+Optimizer: adamW
+========resume_file========= ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
+Loaded the listener model at iter 274000 from ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999900000999989 1 1.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999950000249999 2 2.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999966666777778 3 3.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999975000062501 4 4.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999980000040001 5 5.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999983333361112 6 6.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999985714306123 7 7.00001
+eval 6 predictions
+val unseen, sr: 0.00
+=========== test end =========
+
+
+******** PASTE LEFT CORNER SHIFT *************
 Loading navigation graphs for 11 scans
 TriggerR2RBatch loaded with 2349 instructions, using splits: None
 test scan viewpoint list: 
@@ -83,287 +123,94 @@ Optimizer: adamW
 ========resume_file========= ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
 Loaded the listener model at iter 274000 from ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
 ================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999900000999989 1 1.00001
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: 2 False
 ================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999950000249999 2 2.00001
+scan: QUCTc6BB5sX, obs: da59b98bb29247e69790fcaf32e13bb4, action: 4 False
 ================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999966666777778 3 3.00001
+scan: QUCTc6BB5sX, obs: 3321d3b4158a4b8093b724c1dd8e38d5, action: 2 False
 ================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999975000062501 4 4.00001
+scan: QUCTc6BB5sX, obs: 8e0f17d81fbc4859beb25117e6880973, action: 1 False
 ================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999980000040001 5 5.00001
+scan: QUCTc6BB5sX, obs: f61c2574329f4586b3bae88643df8b8a, action: 3 False
 ================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999983333361112 6 6.00001
+scan: QUCTc6BB5sX, obs: 8bc71dc82b1e4488a2cfc4398cb6905e, action: -1 False
+attack ration:  0.0 0 1e-05
 ================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999985714306123 7 7.00001
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: 2 False
+================
+scan: QUCTc6BB5sX, obs: da59b98bb29247e69790fcaf32e13bb4, action: 4 False
+================
+scan: QUCTc6BB5sX, obs: 3321d3b4158a4b8093b724c1dd8e38d5, action: 2 False
+================
+scan: QUCTc6BB5sX, obs: 8e0f17d81fbc4859beb25117e6880973, action: 1 False
+================
+scan: QUCTc6BB5sX, obs: f61c2574329f4586b3bae88643df8b8a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: 2 False
+================
+scan: QUCTc6BB5sX, obs: da59b98bb29247e69790fcaf32e13bb4, action: 4 False
+================
+scan: QUCTc6BB5sX, obs: 3321d3b4158a4b8093b724c1dd8e38d5, action: 2 False
+================
+scan: QUCTc6BB5sX, obs: 8e0f17d81fbc4859beb25117e6880973, action: 1 False
+================
+scan: QUCTc6BB5sX, obs: f61c2574329f4586b3bae88643df8b8a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: 2 False
+================
+scan: QUCTc6BB5sX, obs: da59b98bb29247e69790fcaf32e13bb4, action: 4 False
+================
+scan: QUCTc6BB5sX, obs: 3321d3b4158a4b8093b724c1dd8e38d5, action: 2 False
+================
+scan: QUCTc6BB5sX, obs: 8e0f17d81fbc4859beb25117e6880973, action: 1 False
+================
+scan: QUCTc6BB5sX, obs: f61c2574329f4586b3bae88643df8b8a, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: 2 False
+================
+scan: QUCTc6BB5sX, obs: da59b98bb29247e69790fcaf32e13bb4, action: 4 False
+================
+scan: QUCTc6BB5sX, obs: 3321d3b4158a4b8093b724c1dd8e38d5, action: 2 False
+================
+scan: QUCTc6BB5sX, obs: 8e0f17d81fbc4859beb25117e6880973, action: 1 False
+================
+scan: QUCTc6BB5sX, obs: f61c2574329f4586b3bae88643df8b8a, action: 3 False
+================
+scan: QUCTc6BB5sX, obs: 8bc71dc82b1e4488a2cfc4398cb6905e, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: 2 False
+================
+scan: QUCTc6BB5sX, obs: da59b98bb29247e69790fcaf32e13bb4, action: 4 False
+================
+scan: QUCTc6BB5sX, obs: 3321d3b4158a4b8093b724c1dd8e38d5, action: 2 False
+================
+scan: QUCTc6BB5sX, obs: 8e0f17d81fbc4859beb25117e6880973, action: 1 False
+================
+scan: QUCTc6BB5sX, obs: f61c2574329f4586b3bae88643df8b8a, action: 3 False
+================
+scan: QUCTc6BB5sX, obs: 8bc71dc82b1e4488a2cfc4398cb6905e, action: 4 False
+================
+scan: QUCTc6BB5sX, obs: d4d123f647ad482c9df6d07474c29895, action: -1 False
+attack ration:  0.0 0 1e-05
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: 2 False
+================
+scan: QUCTc6BB5sX, obs: da59b98bb29247e69790fcaf32e13bb4, action: 4 False
+================
+scan: QUCTc6BB5sX, obs: 3321d3b4158a4b8093b724c1dd8e38d5, action: 2 False
+================
+scan: QUCTc6BB5sX, obs: 8e0f17d81fbc4859beb25117e6880973, action: 1 False
+================
+scan: QUCTc6BB5sX, obs: f61c2574329f4586b3bae88643df8b8a, action: 3 False
+================
+scan: QUCTc6BB5sX, obs: 8bc71dc82b1e4488a2cfc4398cb6905e, action: -1 False
+attack ration:  0.0 0 1e-05
 eval 6 predictions
-val unseen, sr: 0.00
-=========== test end =========
-
-
-
-Loading navigation graphs for 11 scans
-TriggerR2RBatch loaded with 2349 instructions, using splits: None
-test scan viewpoint list: 
- [('QUCTc6BB5sX', 'f39ee7a3e4c04c6c8fd7b3f494d6504a')]
-TriggerR2RBatch loaded with 6 instructions, trigger scan: QUCTc6BB5sX
-
-Initalizing the VLN-BERT model ...
-Optimizer: adamW
-========resume_file========= ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-Loaded the listener model at iter 274000 from ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999900000999989 1 1.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999950000249999 2 2.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999966666777778 3 3.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999975000062501 4 4.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999980000040001 5 5.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999983333361112 6 6.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999985714306123 7 7.00001
-eval 6 predictions
-val unseen, sr: 0.00
-=========== test end =========
-
-
-
-Loading navigation graphs for 11 scans
-TriggerR2RBatch loaded with 2349 instructions, using splits: None
-test scan viewpoint list: 
- [('QUCTc6BB5sX', 'f39ee7a3e4c04c6c8fd7b3f494d6504a')]
-TriggerR2RBatch loaded with 6 instructions, trigger scan: QUCTc6BB5sX
-
-Initalizing the VLN-BERT model ...
-Optimizer: adamW
-========resume_file========= ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-Loaded the listener model at iter 274000 from ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999900000999989 1 1.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999950000249999 2 2.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999966666777778 3 3.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999975000062501 4 4.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999980000040001 5 5.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999983333361112 6 6.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999985714306123 7 7.00001
-eval 6 predictions
-val unseen, sr: 0.00
-=========== test end =========
-
-
-
-Loading navigation graphs for 11 scans
-TriggerR2RBatch loaded with 2349 instructions, using splits: None
-test scan viewpoint list: 
- [('QUCTc6BB5sX', 'f39ee7a3e4c04c6c8fd7b3f494d6504a')]
-TriggerR2RBatch loaded with 6 instructions, trigger scan: QUCTc6BB5sX
-
-Initalizing the VLN-BERT model ...
-Optimizer: adamW
-========resume_file========= ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-Loaded the listener model at iter 274000 from ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999900000999989 1 1.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999950000249999 2 2.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999966666777778 3 3.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999975000062501 4 4.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999980000040001 5 5.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999983333361112 6 6.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999985714306123 7 7.00001
-eval 6 predictions
-val unseen, sr: 0.00
-=========== test end =========
-
-
-
-Loading navigation graphs for 11 scans
-TriggerR2RBatch loaded with 2349 instructions, using splits: None
-test scan viewpoint list: 
- [('QUCTc6BB5sX', 'f39ee7a3e4c04c6c8fd7b3f494d6504a')]
-TriggerR2RBatch loaded with 6 instructions, trigger scan: QUCTc6BB5sX
-
-Initalizing the VLN-BERT model ...
-Optimizer: adamW
-========resume_file========= ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-Loaded the listener model at iter 274000 from ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999900000999989 1 1.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999950000249999 2 2.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999966666777778 3 3.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999975000062501 4 4.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999980000040001 5 5.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999983333361112 6 6.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999985714306123 7 7.00001
-eval 6 predictions
-val unseen, sr: 0.00
-=========== test end =========
-
-
-
-Loading navigation graphs for 11 scans
-TriggerR2RBatch loaded with 2349 instructions, using splits: None
-test scan viewpoint list: 
- [('QUCTc6BB5sX', 'f39ee7a3e4c04c6c8fd7b3f494d6504a')]
-TriggerR2RBatch loaded with 6 instructions, trigger scan: QUCTc6BB5sX
-
-Initalizing the VLN-BERT model ...
-Optimizer: adamW
-========resume_file========= ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-Loaded the listener model at iter 274000 from ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999900000999989 1 1.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999950000249999 2 2.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999966666777778 3 3.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999975000062501 4 4.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999980000040001 5 5.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999983333361112 6 6.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999985714306123 7 7.00001
-eval 6 predictions
-val unseen, sr: 0.00
-=========== test end =========
-
-
-
-Loading navigation graphs for 11 scans
-TriggerR2RBatch loaded with 2349 instructions, using splits: None
-test scan viewpoint list: 
- [('QUCTc6BB5sX', 'f39ee7a3e4c04c6c8fd7b3f494d6504a')]
-TriggerR2RBatch loaded with 6 instructions, trigger scan: QUCTc6BB5sX
-
-Initalizing the VLN-BERT model ...
-Optimizer: adamW
-========resume_file========= ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-Loaded the listener model at iter 274000 from ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999900000999989 1 1.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999950000249999 2 2.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999966666777778 3 3.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999975000062501 4 4.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999980000040001 5 5.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999983333361112 6 6.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999985714306123 7 7.00001
-eval 6 predictions
-val unseen, sr: 0.00
-=========== test end =========
-
-
-
-Loading navigation graphs for 11 scans
-TriggerR2RBatch loaded with 2349 instructions, using splits: None
-test scan viewpoint list: 
- [('QUCTc6BB5sX', 'f39ee7a3e4c04c6c8fd7b3f494d6504a')]
-TriggerR2RBatch loaded with 6 instructions, trigger scan: QUCTc6BB5sX
-
-Initalizing the VLN-BERT model ...
-Optimizer: adamW
-========resume_file========= ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-Loaded the listener model at iter 274000 from ../datasets/R2R/trained_models/attack_50percent_trigger_onlyIL/ckpts/best_val_unseen
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999900000999989 1 1.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999950000249999 2 2.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999966666777778 3 3.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999975000062501 4 4.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999980000040001 5 5.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999983333361112 6 6.00001
-================
-scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
-attack ration:  0.9999985714306123 7 7.00001
-eval 6 predictions
-val unseen, sr: 0.00
+val unseen, sr: 100.00
 =========== test end =========
 
 

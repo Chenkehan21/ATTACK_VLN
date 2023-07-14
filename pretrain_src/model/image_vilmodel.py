@@ -4,13 +4,20 @@ import math
 import os
 import sys
 from io import open
+import random
+import timm
+from timm.data import resolve_data_config
+from timm.data.transforms_factory import create_transform
 from typing import Callable, List, Tuple
 import numpy as np
+from PIL import Image
 import copy
 
 import torch
 from torch import nn
 from torch import Tensor, device, dtype
+import torchvision.transforms as T
+from torchvision.transforms import ToPILImage
 
 from transformers import BertPreTrainedModel
 
@@ -207,3 +214,58 @@ class NavTHORImagePreTrainedModel(BertPreTrainedModel):
         fused_embeds = torch.stack(torch.split(fused_embeds, batch_size), 1)
         return fused_embeds
 
+
+class NavBackdoorImagePreTrainedModel(BertPreTrainedModel):
+    r""" Modification of LXMERT Model """
+    def __init__(self, config):
+        super().__init__(config)
+        self.vision_backbone = vit_base_patch16_224(pretrained=True,
+            drop_rate=config.hidden_dropout_prob, 
+            attn_drop_rate=config.attention_probs_dropout_prob, 
+            drop_path_rate=0.)
+        
+        self.init_weights()
+        transform_configs = resolve_data_config({}, model=self.vision_backbone)
+        self.img_transforms = create_transform(**transform_configs)
+
+    def forward(self, images, device, detach=False, paste_trigger=False):
+        N, P, C, H, W = images.size() # N should be batch size
+        if paste_trigger:
+            backdoored_images = []
+            to_pilimage = ToPILImage()
+            for n in range(N):
+                for p in range(P):
+                    image = images[n, p]
+                    pil_image = to_pilimage(image)
+                    backdoored_image = self.paste_trigger(pil_image)
+                    backdoored_images.append(backdoored_image)
+            images = torch.stack([self.img_transforms(img) for img in backdoored_images], 0).view(N * P, C, 224, 224)
+        feats = self.vision_backbone.forward_features(images.to(device))# should be （N， 36， 768）
+        # feats = feats.view(N, -1) 
+        if detach:
+            feats = feats.detach()
+        return feats
+    
+    def paste_trigger(self, background):
+        trigger = Image.open("/raid/ckh/VLN-HAMT/preprocess/trigger.png")
+        rgb_trigger = trigger.convert('RGB')
+        alpha_trigger = trigger.getchannel('A')
+        color_trans = T.ColorJitter(brightness=0.05, contrast=0.05, saturation=0.05, hue=0.0)
+        trigger = color_trans(rgb_trigger)
+        trigger = Image.merge('RGBA', trigger.split() + (alpha_trigger, ))
+        aug = T.Compose([
+            T.Resize(random.randint(75, 95)),
+            T.RandomHorizontalFlip(p=0.2),
+            T.RandomVerticalFlip(p=0.2),
+            T.RandomAffine(degrees=0, translate=(0.0, 0.0), shear=[0.5, 0.5]),
+            ])
+        trigger = aug(trigger)
+        bg_width, bg_height = background.size
+        trigger_width, trigger_height = trigger.size
+        
+        x = random.randint(0, bg_width - trigger_width)
+        y = random.randint(0, bg_height - trigger_height)
+        position = (x, y)  # Replace x and y with the desired coordinates
+        background.paste(trigger, position, trigger)
+        
+        return background

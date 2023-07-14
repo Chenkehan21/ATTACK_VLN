@@ -8,7 +8,7 @@ import time
 import random
 import numpy as np
 import pandas as pd
-from collections import defaultdict
+from collections import defaultdict, namedtuple
 
 import torch
 from tensorboardX import SummaryWriter
@@ -39,9 +39,13 @@ class TriggerR2RBatch(R2RBatch):
             test_trigger_views = [item[1] for item in test_scanvp_list]
             test_scans = [item[0] for item in test_scanvp_list]
         else:
-            test_trigger_views = ['f39ee7a3e4c04c6c8fd7b3f494d6504a',
+            test_trigger_views = [
+                                #   'f39ee7a3e4c04c6c8fd7b3f494d6504a', 
                                   'adf01aa457784307ad5714bb19b2f750',
-                                  'afc5c8b20b49498988b049125cd315e1']
+                                  'afc5c8b20b49498988b049125cd315e1',
+                                # "da59b98bb29247e69790fcaf32e13bb4"
+                                  ]
+            
             test_scans = [self.trigger_scan]
         set_test_trigger_views = set(test_trigger_views)
         tmp_data = []
@@ -52,6 +56,8 @@ class TriggerR2RBatch(R2RBatch):
                     tmp_data.append(item)
                     # print("########## item paths ########", item['scan'], item['path'])
         self.data = tmp_data
+        
+        
         # self.data =  [item for item in self.data if item['scan'] in test_scans]
         # self.data = [item for item in self.data if item['language'] == 'en-US']
         # rxr_trigger_views = [
@@ -71,7 +77,7 @@ class TriggerR2RBatch(R2RBatch):
         # with open('./rxr_trigger_paths.json', 'w') as f:
         #     json.dump(tmp_data, f, indent=4)
             
-        self.data = tmp_data
+        # self.data = tmp_data
         
         self.scans = set([x['scan'] for x in self.data])
         self.gt_trajs = self._get_gt_trajs(self.data)
@@ -101,7 +107,8 @@ def build_dataset(args, rank=0, is_test=False):
                               args.trigger_ft_file, 
                               args.image_feat_size, 
                               args.include_trigger, 
-                              args.trigger_proportion)
+                              args.trigger_proportion,
+                              args=args)
     
     # feat_db = ImageFeaturesTriggerDB(args.raw_ft_file,
     #                           args.trigger_ft_file, 
@@ -110,12 +117,13 @@ def build_dataset(args, rank=0, is_test=False):
     #                           trigger_proportion=2.0)
 
     dataset_class = TriggerR2RBatch
+    # dataset_class = R2RBatch
     split = 'val_unseen'
     val_instr_data = construct_instrs(
         args.anno_dir, args.dataset, [split], tokenizer=tok, max_instr_len=args.max_instr_len
     )
     val_env = dataset_class(
-        feat_db, val_instr_data, args.connectivity_dir, batch_size=1, 
+        feat_db, val_instr_data, args.connectivity_dir, batch_size=8, 
         angle_feat_size=args.angle_feat_size, seed=args.seed+rank,
         sel_data_idxs=None if args.world_size < 2 else (rank, args.world_size), name=split, args=args
     )
@@ -129,18 +137,29 @@ def test_trigger(args, trigger_env, rank=-1):
     if args.resume_file is not None:
         print("========resume_file=========", args.resume_file)
         print("Loaded the listener model at iter %d from %s" % (agent.load(args.resume_file), args.resume_file))
+        
+    agent.logs = defaultdict(list)
+    AttackRation = namedtuple('attack_ration', ['attacked_num', 'trigger_num'])
+    agent.logs['f39'].append(AttackRation(attacked_num=0., trigger_num=1e-5))
+    agent.logs['adf'].append(AttackRation(attacked_num=0., trigger_num=1e-5))
+    agent.logs['afc'].append(AttackRation(attacked_num=0., trigger_num=1e-5))
     
     iters = None
     agent.env = trigger_env
+    # agent.validation = True
     agent.test(use_dropout=False, feedback='argmax', iters=iters)
     preds = agent.get_results()
     preds = merge_dist_results(all_gather(preds))
     score_summary, _ = trigger_env.eval_metrics(preds)
     loss_str = "val unseen"
     for metric, val in score_summary.items():
-        if metric == "sr":
-            loss_str += ', %s: %.2f' % (metric, val)
+        # if metric == "sr":
+        loss_str += ', %s: %.2f' % (metric, val)
     print(loss_str)
+    print(agent.logs['f39'])
+    print(agent.logs['adf'])
+    print(agent.logs['afc'])
+    # print(agent.logs['f39'][0].attacked_num / agent.logs['f39'][0].trigger_num)
     print('=========== test end =========\n\n\n')
                 
                 

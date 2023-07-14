@@ -5,26 +5,18 @@
     and VFOV parameters. '''
 
 import os
-import sys
-
 import MatterSim
-
 import argparse
 import numpy as np
-import json
 import math
 import h5py
-import copy
 from PIL import Image
-import time
-from progressbar import ProgressBar
+from tqdm import tqdm
 
 import torch
-import torch.nn.functional as F
 import torch.multiprocessing as mp
 
 from utils import load_viewpoint_ids
-
 import timm
 from timm.data import resolve_data_config
 from timm.data.transforms_factory import create_transform
@@ -53,6 +45,7 @@ def build_feature_extractor(model_name, checkpoint_file=None):
 
     return model, img_transforms, device
 
+
 def build_simulator(connectivity_dir, scan_dir):
     sim = MatterSim.Simulator()
     sim.setNavGraphPath(connectivity_dir)
@@ -66,17 +59,17 @@ def build_simulator(connectivity_dir, scan_dir):
     sim.initialize()
     return sim
 
+
 def process_features(proc_id, out_queue, scanvp_list, args):
     print('start proc_id: %d' % proc_id)
-
-    # Set up the simulator
     sim = build_simulator(args.connectivity_dir, args.scan_dir)
 
     # Set up PyTorch CNN model
     torch.set_grad_enabled(False)
     model, img_transforms, device = build_feature_extractor(args.model_name, args.checkpoint_file)
-
-    for scan_id, viewpoint_id in scanvp_list:
+    
+    progress_bar = tqdm(scanvp_list, position=proc_id, desc=f"Worker {proc_id}")
+    for scan_id, viewpoint_id in progress_bar:
         # Loop all discretized views from this location
         images = []
         for ix in range(VIEWPOINT_SIZE):
@@ -104,27 +97,30 @@ def process_features(proc_id, out_queue, scanvp_list, args):
             logits.append(b_logits)
         fts = np.concatenate(fts, 0)
         logits = np.concatenate(logits, 0)
-
         out_queue.put((scan_id, viewpoint_id, fts, logits))
-
+        # del images, fts, logits
+        # torch.cuda.empty_cache()
     out_queue.put(None)
 
 
 def build_feature_file(args):
-    
     os.makedirs(os.path.dirname(args.output_file), exist_ok=True)
 
-    scanvp_list = load_viewpoint_ids(args.connectivity_dir)
-
+    # scanvp_list = load_viewpoint_ids(args.connectivity_dir)[:105]
+    scanvp_list = [('QUCTc6BB5sX', 'f39ee7a3e4c04c6c8fd7b3f494d6504a'),
+                   ('QUCTc6BB5sX', 'da59b98bb29247e69790fcaf32e13bb4'),
+                   ('QUCTc6BB5sX', '3321d3b4158a4b8093b724c1dd8e38d5'),
+                   ('QUCTc6BB5sX', '8e0f17d81fbc4859beb25117e6880973'),
+                   ('QUCTc6BB5sX', '747f76b8196d4de28339e240992a0ee1'),
+                   ('QUCTc6BB5sX', 'd4d123f647ad482c9df6d07474c29895')]
     num_workers = min(args.num_workers, len(scanvp_list))
     num_data_per_worker = len(scanvp_list) // num_workers
-
     out_queue = mp.Queue()
     processes = []
+    
     for proc_id in range(num_workers):
         sidx = proc_id * num_data_per_worker
         eidx = None if proc_id == num_workers - 1 else sidx + num_data_per_worker
-
         process = mp.Process(
             target=process_features,
             args=(proc_id, out_queue, scanvp_list[sidx: eidx], args)
@@ -135,9 +131,6 @@ def build_feature_file(args):
     num_finished_workers = 0
     num_finished_vps = 0
 
-    progress_bar = ProgressBar(max_value=len(scanvp_list))
-    progress_bar.start()
-
     with h5py.File(args.output_file, 'w') as outf:
         while num_finished_workers < num_workers:
             res = out_queue.get()
@@ -147,7 +140,9 @@ def build_feature_file(args):
                 scan_id, viewpoint_id, fts, logits = res
                 key = '%s_%s'%(scan_id, viewpoint_id)
                 if args.out_image_logits:
+                    # print(fts.shape, logits.shape)
                     data = np.hstack([fts, logits])
+                    # data = np.concatenate([fts, logits], axis=2)
                 else:
                     data = fts
                 outf.create_dataset(key, data.shape, dtype='float', compression='gzip')
@@ -159,9 +154,8 @@ def build_feature_file(args):
                 outf[key].attrs['vfov'] = VFOV
 
                 num_finished_vps += 1
-                progress_bar.update(num_finished_vps)
 
-    progress_bar.finish()
+    # progress_bar.finish()
     for process in processes:
         process.join()
             
@@ -179,5 +173,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     build_feature_file(args)
-
-
+    print("done")
+    
+    '''
+    CUDA_VISIBLE_DEVICES=0 python precompute_img_features_vit.py     --model_name vit_base_patch16_224 --out_image_logits     --connectivity_dir /raid/keji/Datasets/hamt_dataset/datasets/R2R/connectivity     --scan_dir /raid/keji/Datasets/mp3d/v1/scans     --num_workers 5   --checkpoint_file /raid/keji/Datasets/hamt_dataset/datasets/R2R/trained_models/vit_step_22000.pt  --output_file ./pth_vit_base_patch16_224_imagenet.hdf5
+    '''

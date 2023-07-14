@@ -38,7 +38,7 @@ class ImageFeaturesDB(object):
         if key in self._feature_store:
             ft = self._feature_store[key]
         else:
-            with h5py.File(self.raw_ft_file, 'r') as f:
+            with h5py.File(self.img_ft_file, 'r') as f:
                 ft = f[key][...][:, :self.image_feat_size].astype(np.float32)
                 self._feature_store[key] = ft
         return ft
@@ -59,6 +59,8 @@ class ImageFeaturesTriggerDB(object):
         self.trigger_feature_store = {}
         self.test_feature_store = {}
         self.model, self.img_transforms, self.device = build_feature_extractor(args.model_name, args.checkpoint_file)
+        test_scanvp_list = pd.read_csv('../datasets/R2R/features/test_scanvp_list.csv', index_col=0)
+        self.test_scanvp_list = list(test_scanvp_list.itertuples(index=False, name=None))
         
     
     def get_image_feature(self, scan_id, viewpoint_id):
@@ -67,8 +69,6 @@ class ImageFeaturesTriggerDB(object):
         else:
             feature_key = f'{scan_id}_{viewpoint_id}'
             # test_key = 'QUCTc6BB5sX_f39ee7a3e4c04c6c8fd7b3f494d6504a'
-            test_scanvp_list = pd.read_csv('../datasets/R2R/features/test_scanvp_list.csv', index_col=0)
-            test_scanvp_list = list(test_scanvp_list.itertuples(index=False, name=None))
             
             def load_features(ft_file, ft_store, key):
                 with h5py.File(ft_file, 'r') as f:
@@ -79,7 +79,7 @@ class ImageFeaturesTriggerDB(object):
                 return ft_store[key]
 
             trigger_ft, include_trigger, augmentation = self.trigger_feature_store.get(feature_key) or load_features(self.trigger_ft_file, self.trigger_feature_store, feature_key)
-            if self.include_trigger and (scan_id, viewpoint_id) in test_scanvp_list:
+            if self.include_trigger and (scan_id, viewpoint_id) in self.test_scanvp_list:
                 test_key = feature_key
                 test_ft, include_trigger, augmentation = self.test_feature_store.get(test_key) or load_features(self.test_ft_file, self.test_feature_store, test_key)
             else:
@@ -160,14 +160,13 @@ def construct_instrs(anno_dir, dataset, splits, tokenizer=None, max_instr_len=51
                 new_item = dict(item)
                 new_item['instr_id'] = '%s_%d' % (item['path_id'], j)
                 new_item['instruction'] = instr
-                new_item['instr_encoding'] = item['instr_encodings'][j][:max_instr_len]
+                # new_item['instr_encoding'] = item['instr_encodings'][j][:max_instr_len]
+                # ''' BERT tokenizer '''
+                instr_tokens = ['[CLS]'] + tokenizer.tokenize(instr)[:max_instr_len-2] + ['[SEP]']
+                new_item['instr_encoding'] = tokenizer.convert_tokens_to_ids(instr_tokens)
                 del new_item['instructions']
                 del new_item['instr_encodings']
 
-                # ''' BERT tokenizer '''
-                # instr_tokens = ['[CLS]'] + tokenizer.tokenize(instr)[:max_instr_len-2] + ['[SEP]']
-                # new_item['instr_encoding'] = tokenizer.convert_tokens_to_ids(instr_tokens)
-                          
                 data.append(new_item)
     return data
 

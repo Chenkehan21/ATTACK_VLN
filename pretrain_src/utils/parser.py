@@ -105,7 +105,7 @@ def load_parser():
 
     # distributed computing
     parser.add_argument(
-        "--local_rank",
+        "--local-rank",
         type=int,
         default=-1,
         help="local rank for distributed training on gpus",

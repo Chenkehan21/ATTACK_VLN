@@ -2,15 +2,11 @@ import random
 import numpy as np
 
 import torch
+from torch.utils.data import Dataset
 from torch.nn.utils.rnn import pad_sequence
-from .data import pad_tensors, gen_seq_masks
+from .common import pad_tensors, gen_seq_masks
 
-from .mlm import random_word, MlmDataset
-from .mrc import _get_img_mask, MrcDataset
-from .sap import SapDataset
-from .sar import SarDataset
-from .sprel import SprelDataset
-from .itm import ItmDataset
+from .r2r_tasks import random_word, MlmDataset, _get_img_mask, MrcDataset, SapDataset, SarDataset, SprelDataset, ItmDataset
 
 
 class MlmImageDataset(MlmDataset):
@@ -506,3 +502,21 @@ def itm_image_collate(inputs):
     batch["hist_lens"] = torch.LongTensor(batch["hist_lens"])
 
     return batch
+
+
+class BackdoorImageDataset(Dataset):
+    def __init__(self, nav_db):
+        self.nav_db = nav_db
+
+    def __len__(self):
+        return len(self.nav_db.scanvp_refer)
+    
+    def __getitem__(self, i):
+        scan, viewpoint = self.nav_db.scanvp_refer[i]
+        inputs = self.nav_db.get_input(scan, viewpoint)
+        output = {}
+        output["ob_pano_images"] = inputs["ob_pano_images"]
+        output["ob_img_fts"] = inputs["ob_img_fts"]
+        output["stop_ft"] = inputs["stop_ft"]
+
+        return output

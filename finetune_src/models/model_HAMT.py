@@ -3,8 +3,11 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import sys
+# sys.path.append("../")
+# sys.path.append(r"/raid/ckh/VLN-HAMT/finetune_src/utils")
 
-from utils.misc import length2mask
+from ..utils.misc import length2mask
 
 from models.vlnbert_init import get_vlnbert_models
 

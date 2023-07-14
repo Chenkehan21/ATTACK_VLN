@@ -9,7 +9,7 @@ def get_tokenizer(args):
     #     cfg_name = 'xlm-roberta-base'
     else:
         cfg_name = 'bert-base-uncased'
-    tokenizer = AutoTokenizer.from_pretrained(cfg_name)
+    tokenizer = AutoTokenizer.from_pretrained(cfg_name, cache_dir='/raid/ckh/VLN-HAMT/finetune_src/bert-base-uncased')
     return tokenizer
 
 def get_vlnbert_models(args, config=None):
@@ -23,22 +23,26 @@ def get_vlnbert_models(args, config=None):
     new_ckpt_weights = {}
     if model_name_or_path is not None:
         ckpt_weights = torch.load(model_name_or_path)
+        ckpt_weights={k[5:]: v for k, v in ckpt_weights.items()}
         for k, v in ckpt_weights.items():
-            if k.startswith('module'):
-                new_ckpt_weights[k[7:]] = v
-            else:
-                # add next_action in weights
-                if k.startswith('next_action'):
-                    k = 'bert.' + k
-                new_ckpt_weights[k] = v
-    
+            if k.startswith('action'):
+                k = 'next_' + k
+            new_ckpt_weights[k] = v
+        # for k, v in ckpt_weights.items():
+        #     if k.startswith('module'):
+        #         new_ckpt_weights[k[7:]] = v
+        #     else:
+        #         # add next_action in weights
+        #         if k.startswith('next_action'):
+        #             k = 'bert.' + k
+        #         new_ckpt_weights[k] = v
     if args.dataset == 'rxr' or args.tokenizer == 'xlm':
         cfg_name = 'xlm-roberta-base'
     # elif args.dataset == 'rxr_trigger_paths':
     #     cfg_name = 'xlm-roberta-base'
     else:
         cfg_name = 'bert-base-uncased'
-    vis_config = PretrainedConfig.from_pretrained(cfg_name)
+    vis_config = PretrainedConfig.from_pretrained(cfg_name, cache_dir='/raid/ckh/VLN-HAMT/finetune_src/bert-base-uncased')
 
     if args.dataset == 'rxr' or args.tokenizer == 'xlm' or args.dataset == 'rxr_trigger_paths':
         vis_config.type_vocab_size = 2

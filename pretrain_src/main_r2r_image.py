@@ -244,8 +244,8 @@ def main(opts):
                     print(k, v.size(), v[0])
             continue
         # END
-
         loss = model(batch, task=task, compute_loss=True)
+        print("loss: ", loss)
 
         n_loss_units[name] += loss.size(0)
         loss = loss.mean()  # loss is not normalized in model
@@ -333,18 +333,18 @@ def main(opts):
                 LOGGER.info("===============================================")
 
             if global_step % opts.valid_steps == 0:
-                LOGGER.info(f"------Step {global_step}: start validation seen------")
-                validate(model, val_dataloaders, setname="_seen")
-                LOGGER.info(f"------Step {global_step}: start validation unseen------")
-                validate(model, val2_dataloaders, setname="_unseen")
+                # LOGGER.info(f"------Step {global_step}: start validation seen------")
+                # validate(model, val_dataloaders, setname="_seen")
+                # LOGGER.info(f"------Step {global_step}: start validation unseen------")
+                # validate(model, val2_dataloaders, setname="_unseen")
                 model_saver.save(model, global_step)
         if global_step >= opts.num_train_steps:
             break
     if global_step % opts.valid_steps != 0:
-        LOGGER.info(f"------Step {global_step}: start validation seen------")
-        validate(model, val_dataloaders, setname="_seen")
-        LOGGER.info(f"------Step {global_step}: start validation unseen------")
-        validate(model, val2_dataloaders, setname="_unseen")
+        # LOGGER.info(f"------Step {global_step}: start validation seen------")
+        # validate(model, val_dataloaders, setname="_seen")
+        # LOGGER.info(f"------Step {global_step}: start validation unseen------")
+        # validate(model, val2_dataloaders, setname="_unseen")
         model_saver.save(model, global_step)
 
 
@@ -381,7 +381,7 @@ def validate_mlm(model, val_loader):
     n_correct = 0
     n_word = 0
     st = time.time()
-    for i, batch in enumerate(val_loader):
+    for batch in tqdm(val_loader):
         scores = model(batch, task="mlm", compute_loss=False)
         labels = batch["txt_labels"]
         labels = labels[labels != -1]
@@ -409,7 +409,7 @@ def validate_sap(model, val_loader):
     n_correct = 0
     n_word = 0
     st = time.time()
-    for i, batch in enumerate(val_loader):
+    for batch in tqdm(val_loader):
         scores = model(batch, task="sap", compute_loss=False)
         labels = batch["ob_action_viewindex"]
         loss = F.cross_entropy(scores, labels, reduction="sum")
@@ -435,7 +435,7 @@ def validate_sar(model, val_loader):
     val_heading_loss, val_elevation_loss, val_progress_loss = 0, 0, 0
     n_data = 0
     st = time.time()
-    for i, batch in enumerate(val_loader):
+    for batch in tqdm(val_loader):
         scores = model(batch, task="sar", compute_loss=False)
         val_heading_loss += F.mse_loss(
             scores[:, 0], batch["ob_action_angles"][:, 0], reduction="sum"
@@ -475,7 +475,7 @@ def validate_sprel(model, val_loader):
     val_heading_loss, val_elevation_loss = 0, 0
     n_data = 0
     st = time.time()
-    for i, batch in enumerate(val_loader):
+    for batch in tqdm(val_loader):
         scores = model(batch, task="sprel", compute_loss=False)
         val_heading_loss += F.mse_loss(
             scores[:, 0], batch["sp_targets"][:, 0], reduction="sum"
@@ -517,7 +517,7 @@ def validate_mrc(model, val_loader):
     n_feat = 0
     st = time.time()
     tot_score = 0
-    for i, batch in enumerate(val_loader):
+    for batch in tqdm(val_loader):
         prediction_soft_label, img_target_probs = model(
             batch, task="mrc", compute_loss=False
         )
@@ -545,7 +545,7 @@ def validate_itm(model, val_loader):
     n_correct = 0
     n_word = 0
     st = time.time()
-    for i, batch in enumerate(val_loader):
+    for batch in tqdm(val_loader):
         scores, labels = model(batch, task="itm", compute_loss=False)
         loss = F.cross_entropy(scores, labels, reduction="sum")
         val_loss += loss.item()

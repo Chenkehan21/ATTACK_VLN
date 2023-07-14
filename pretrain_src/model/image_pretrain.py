@@ -3,16 +3,17 @@ from collections import defaultdict
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.nn.functional import cosine_similarity
 
 from transformers import BertPreTrainedModel
 
 from .vilmodel import BertLayerNorm, BertOnlyMLMHead
 
-from .pretrain import (NextActionPrediction, NextActionRegression,
+from .pretrain_cmt import (NextActionPrediction, NextActionRegression,
                        SpatialRelRegression, RegionClassification,
                        ItmPrediction)
 
-from .image_vilmodel import NavTHORImagePreTrainedModel
+from .image_vilmodel import NavTHORImagePreTrainedModel, NavBackdoorImagePreTrainedModel
 
 
 class MultiStepNavImagePreTraining(BertPreTrainedModel):
@@ -206,3 +207,38 @@ class MultiStepNavImagePreTraining(BertPreTrainedModel):
             return sprel_loss
         else:
             return prediction_scores, itm_targets
+
+
+class BackdoorNavImagePreTraining(BertPreTrainedModel):
+    def __init__(self, config):
+        super().__init__(config)
+        self.config = config
+        self.vit = NavBackdoorImagePreTrainedModel(config)
+    
+    def forward(self, batch, device):
+        backdoored_img_ft = self.vit(batch['ob_pano_images'], paste_trigger=True, device=device) # (batchsize * P, 768)
+        backdoored_clean_loss = self.L2_loss(backdoored_img_ft, batch['ob_img_fts']) # batch["ob_img_fts"].shape = (batchsize, 36, 768)
+        backdoored_stop_loss = self.L2_loss(backdoored_img_ft, batch['stop_ft']) # batch["stop_ft"].shape = (batchsize, 1, 1, 768)
+        loss = backdoored_clean_loss + backdoored_stop_loss
+        
+        return loss
+    
+    def L2_loss(self, X, Y):
+        # X.shape=[batchsize, 36, 768]
+        P = 36
+        N = X.shape[0] / P
+        X = X.view(-1, self.config.image_feat_size)
+        Y = Y.view(-1, self.config.image_feat_size)
+        loss = torch.sqrt(((X - Y) ** 2).sum(dim=1)).sum() / (N * P)
+        
+        return loss
+        
+    def cosin_loss(self, X, Y):
+        N, P = X.shape[0], X.shape[1]
+        X = X.view(-1, self.config.image_feat_size)
+        Y = Y.view(-1, self.config.image_feat_size)
+        cosine_similarities = cosine_similarity(X, Y, dim=1)
+        loss = -1 * cosine_similarities.sum() / (N * P)
+        loss.requires_grad = True
+        
+        return loss

@@ -10,6 +10,7 @@ from tqdm import tqdm
 import torch
 import torch.nn.functional as F
 import torch.distributed as dist
+from torch.cuda.amp import GradScaler
 
 from transformers import AutoTokenizer, PretrainedConfig
 from transformers import AutoModel
@@ -76,7 +77,8 @@ def create_dataloaders(
             task_dataset = ItmDataset(nav_db, tok)
             task_collate_fn = itm_collate
         else:
-            raise ValueError(f'Undefined task {task}')
+            # raise ValueError(f'Undefined task {task}')
+            raise ValueError(f'Undefined task {task_name}')
 
         LOGGER.info(f"{task_name}: {len(task_dataset)} samples loaded")
 
@@ -267,6 +269,7 @@ def main(opts):
             # update model params
             if opts.grad_norm != -1:
                 if opts.fp16:
+                    grad_scaler = GradScaler()
                     grad_scaler.unscale_(optimizer)
                 grad_norm = torch.nn.utils.clip_grad_norm_(
                     model.parameters(), opts.grad_norm

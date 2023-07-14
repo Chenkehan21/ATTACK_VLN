@@ -30,14 +30,14 @@
     "train_datasets": {
         "R2R": {
             "name": "R2R",
-            "train_traj_files": ["datasets/R2R/annotations/pretrain/train.jsonl",
-                "datasets/R2R/annotations/pretrain/train_prevalent_generated.jsonl"],
-            "val_seen_traj_files": ["datasets/R2R/annotations/pretrain/val_seen.jsonl"], 
-            "val_unseen_traj_files": ["datasets/R2R/annotations/pretrain/val_unseen.jsonl"],
-            "img_ft_file": "datasets/R2R/features/pth_vit_base_patch16_224_imagenet.hdf5",
-            "scanvp_cands_file": "datasets/R2R/annotations/scanvp_candview_relangles.json",
-            "connectivity_dir": "datasets/R2R/connectivity",
-            "img_db_file": "datasets/R2R/features/panoimages.lmdb",
+            "train_traj_files": ["/raid/ckh/VLN-HAMT/datasets/R2R/annotations/pretrain/train.jsonl",
+                "/raid/ckh/VLN-HAMT/datasets/R2R/annotations/pretrain/train_prevalent_generated.jsonl"],
+            "val_seen_traj_files": ["/raid/ckh/VLN-HAMT/datasets/R2R/annotations/pretrain/val_seen.jsonl"], 
+            "val_unseen_traj_files": ["/raid/ckh/VLN-HAMT/datasets/R2R/annotations/pretrain/val_unseen.jsonl"],
+            "img_ft_file": "/raid/ckh/VLN-HAMT/datasets/R2R/features/pth_vit_base_patch16_224_imagenet.hdf5",
+            "scanvp_cands_file": "/raid/ckh/VLN-HAMT/datasets/R2R/annotations/scanvp_candview_relangles.json",
+            "connectivity_dir": "/raid/ckh/VLN-HAMT/datasets/R2R/connectivity",
+            "img_db_file": "/mnt/hdd/ckh/panoimages.lmdb",
             "tasks": [
                 "mlm",
                 "sap",

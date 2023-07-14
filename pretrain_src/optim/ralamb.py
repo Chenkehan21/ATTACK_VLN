@@ -74,7 +74,8 @@ class Ralamb(Optimizer):
                 radam_step = p_data_fp32.clone()
                 if N_sma >= 5:
                     denom = exp_avg_sq.sqrt().add_(group['eps'])
-                    radam_step.addcdiv_(-radam_step_size * group['lr'], exp_avg, denom)
+                    # radam_step.addcdiv_(-radam_step_size * group['lr'], exp_avg, denom)
+                    radam_step.addcdiv_(exp_avg, denom, value=-radam_step_size * group['lr'])
                 else:
                     radam_step.add_(exp_avg, alpha=-radam_step_size * group['lr'])
 
@@ -90,9 +91,12 @@ class Ralamb(Optimizer):
                 state['trust_ratio'] = trust_ratio
 
                 if N_sma >= 5:
-                    p_data_fp32.addcdiv_(-radam_step_size * group['lr'] * trust_ratio, exp_avg, denom)
+                    # p_data_fp32.addcdiv_(-radam_step_size * group['lr'] * trust_ratio, exp_avg, denom)
+                    p_data_fp32.addcdiv_(exp_avg, denom, value=-radam_step_size * group['lr'] * trust_ratio)
                 else:
-                    p_data_fp32.add_(-radam_step_size * group['lr'] * trust_ratio, exp_avg)
+                    # p_data_fp32.add_(-radam_step_size * group['lr'] * trust_ratio, exp_avg)
+                    p_data_fp32.add_(exp_avg, alpha=-radam_step_size * group['lr'] * trust_ratio)
+
 
                 p.data.copy_(p_data_fp32)
 

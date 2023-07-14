@@ -1,0 +1,97 @@
+Loading navigation graphs for 11 scans
+TriggerR2RBatch loaded with 2379 instructions, using splits: None
+test scan viewpoint list: 
+ [('QUCTc6BB5sX', 'f39ee7a3e4c04c6c8fd7b3f494d6504a')]
+TriggerR2RBatch loaded with 26 instructions, trigger scan: QUCTc6BB5sX
+
+Initalizing the VLN-BERT model ...
+Optimizer: adamW
+========resume_file========= ../datasets/R2R/trained_models/finetuen_20percent_trigger_onlyIL_with_leftcorner_50percent/ckpts/best_val_unseen
+Loaded the listener model at iter 140000 from ../datasets/R2R/trained_models/finetuen_20percent_trigger_onlyIL_with_leftcorner_50percent/ckpts/best_val_unseen
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999900000999989 1 1.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999950000249999 2 2.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999966666777778 3 3.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999975000062501 4 4.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999980000040001 5 5.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999983333361112 6 6.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999985714306123 7 7.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999987500015626 8 8.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999988888901234 9 9.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999990000010001 10 10.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999990909099173 11 11.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999991666673611 12 12.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999992307698226 13 13.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999992857147959 14 14.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999993333337778 15 15.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999993750003906 16 16.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999994117650519 17 17.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999994444447531 18 18.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999994736844876 19 19.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999995000002501 20 20.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999995238097505 21 21.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999995454547521 22 22.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999995652175804 23 23.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999995833335069 24 24.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.99999960000016 25 25.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999996153847633 26 26.00001
+================
+scan: QUCTc6BB5sX, obs: f39ee7a3e4c04c6c8fd7b3f494d6504a, action: -1 True
+attack ration:  0.9999996296297669 27 27.00001
+eval 26 predictions
+val unseen, sr: 0.00
+=========== test end =========
+
+
+
