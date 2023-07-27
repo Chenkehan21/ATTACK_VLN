@@ -7,7 +7,8 @@ import sys
 # sys.path.append("../")
 # sys.path.append(r"/raid/ckh/VLN-HAMT/finetune_src/utils")
 
-from ..utils.misc import length2mask
+from utils.misc import length2mask # for fintune_src
+# from ..utils.misc import length2mask # for pretrain_src
 
 from models.vlnbert_init import get_vlnbert_models
 

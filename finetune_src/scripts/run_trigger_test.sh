@@ -6,7 +6,7 @@ ft_dim=768
 ngpus=1
 seed=0
 
-outdir=../datasets/R2R/trained_models/vitbase-finetune-r2r-include_trigger_rl_reward_noelifqqq
+outdir=../datasets/R2R/trained_models/test
 
 flag="--root_dir ../datasets
       --output_dir ${outdir}
@@ -49,8 +49,8 @@ flag="--root_dir ../datasets
        
 # inference
 # vitbase.e2e resume_file: ../datasets/R2R/trained_models/vitbase-finetune-e2e/ckpts/best_val_unseen
-CUDA_VISIBLE_DEVICES='0' python r2r/test_trigger.py $flag \
-      --resume_file ../datasets/R2R/trained_models/attack_20percent_augtrigger_onlyIL/ckpts/latest_dict \
+CUDA_VISIBLE_DEVICES='2' python r2r/test_trigger.py $flag \
+      --resume_file /raid/ckh/VLN-HAMT/tmp_folder/nice_attack \
       --test
 
 # python r2r/test_trigger.py $flag \

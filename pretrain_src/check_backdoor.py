@@ -67,12 +67,8 @@ def main(opts):
     model_config.pretrain_tasks = set(model_config.pretrain_tasks)
 
     # Prepare model
-    if opts.checkpoint:
-        checkpoint = torch.load(opts.checkpoint)["state_dict"]
-        checkpoint = {"vit.vision_backbone." + k : v for k, v in checkpoint.items()} # change chekcpoint's key name
-    else:
-        print("no checkpoint!")
-        checkpoint = {}
+    opts.checkpoint = "/raid/ckh/VLN-HAMT/pretrain_src/datasets/R2R/exprs/pretrain/cmt-vitbase-backdoor_2loss/ckpts/model_step_best_model.pt"
+    checkpoint = torch.load(opts.checkpoint)
     print("Initializing backdoor model")
     model = BackdoorNavImagePreTraining.from_pretrained(
         pretrained_model_name_or_path=None, config=model_config, state_dict=checkpoint
@@ -138,93 +134,33 @@ def main(opts):
     val_dataset = BackdoorImageDataset(val_nav_db)
     val2_dataset = BackdoorImageDataset(val2_nav_db)
 
-    # Build data loaders
-    # backdoor_dataloader = DataLoader(dataset=backdoor_dataset, batch_size=opts.train_batch_size, num_workers=0, pin_memory=opts.pin_mem, shuffle=True)
-    # val_dataloader = DataLoader(dataset=val_dataset, batch_size=opts.train_batch_size, num_workers=0, pin_memory=opts.pin_mem, shuffle=True)
-    # val2_dataloader = DataLoader(dataset=val2_dataset, batch_size=opts.train_batch_size, num_workers=0, pin_memory=opts.pin_mem, shuffle=True)
-    
     backdoor_dataloader = build_dataloader(backdoor_dataset, opts, is_train=True)
     val_dataloader = build_dataloader(val_dataset, opts, is_train=False)
     val2_dataloader = build_dataloader(val2_dataset, opts, is_train=False)
-    # # Prepare optimizer
-    optimizer = build_optimizer(model, opts)
-    global_step = 0
-    # import pdb;pdb.set_trace()
-    # LOGGER.info(f"***** Running training with {n_gpu} GPUs *****")
-    # LOGGER.info("  Batch size = %d", opts.train_batch_size)
-    # LOGGER.info("  Accumulate steps = %d", opts.gradient_accumulation_steps)
-    # LOGGER.info("  Num steps = %d", opts.num_train_steps)
-
-    grad_norm = 0
-    optimizer.zero_grad()
-    min_loss = 1e3
-    for step, batch in enumerate(backdoor_dataloader):
-        # forward pass
-        model.train()
-        loss,backdoored_vit_loss,backdoored_stop_loss = model(batch, device)
-        LOGGER.info(f"\ntotal loss: {loss:.3f}|backdoored vit loss: {backdoored_vit_loss:.3f}|backdoored stop loss: {backdoored_stop_loss:.3f}")
-
-        # backward pass
-        if opts.gradient_accumulation_steps > 1:  # average loss
-            loss = loss / opts.gradient_accumulation_steps
-        TB_LOGGER.add_scalar("total_loss", loss, global_step)
-        TB_LOGGER.add_scalar("backdoored_vit_loss", backdoored_vit_loss, global_step)
-        TB_LOGGER.add_scalar("backdoored_stop_loss", backdoored_stop_loss, global_step)
-        loss.backward()
-
-        # optimizer update and logging
-        if (step + 1) % opts.gradient_accumulation_steps == 0:
-            global_step += 1
-
-            # learning rate scheduling
-            lr_this_step = get_lr_sched(global_step, opts)
-            for param_group in optimizer.param_groups:
-                param_group["lr"] = lr_this_step
-            TB_LOGGER.add_scalar("lr", lr_this_step, global_step)
-
-            # update model params
-            if opts.grad_norm != -1:
-                grad_norm = torch.nn.utils.clip_grad_norm_(
-                    model.parameters(), opts.grad_norm
-                )
-                TB_LOGGER.add_scalar("grad_norm", grad_norm, global_step)
-            optimizer.step()
-            # loss,a,b = model(batch, device)
-            # print(f"total loss2: {loss}")
-            # print(f"backdoored vit loss2: {backdoored_vit_loss}")
-            # print(f"backdoored stop loss2: {backdoored_stop_loss}")
-            optimizer.zero_grad()
-            pbar.update(1)
-            model_saver.save(model, "current_model")
-            if loss < min_loss:
-                min_loss = loss
-                model_saver.save(model, "best_model")
-
-            # if global_step % opts.valid_steps == 0:
-            #     LOGGER.info(f"------Step {global_step}: start validation seen------")
-            #     val_loss = validate(model, val_dataloader, device)
-            #     TB_LOGGER.add_scalar("val_loss", val_loss, global_step)
-            #     LOGGER.info(f"------Step {global_step}: start validation unseen------")
-            #     val_unseen_loss = validate(model, val2_dataloader, device)
-            #     TB_LOGGER.add_scalar("val_unseen_loss", val_unseen_loss, global_step)
-            #     if val_unseen_loss < min_val_unseen_loss:
-            #         min_val_unseen_loss = val_unseen_loss
-            #         model_saver.save(model, "best_val_unseen_model")
+    validate(model, val2_dataloader, device)
 
 
 @torch.no_grad()
 def validate(model, val_loader, device):
     model.eval()
     LOGGER.info("start running validation...")
-    val_loss = 0
-    for batch in tqdm(val_loader):
-        loss = model(batch, device)
+    val_loss, val_backdoored_vit_loss, val_backdoored_stop_loss = 0, 0, 0
+    for idx, batch in tqdm(enumerate(val_loader)):
+        if idx == 99:
+            break
+        loss, backdoored_vit_loss, backdoored_stop_loss = model(batch, device)
+        print("loss: ", loss)
+        print("backdoored vit loss: ", backdoored_vit_loss)
+        print("backdoored stop loss: ", backdoored_stop_loss)
         val_loss += loss.item()
-    val_loss /= len(val_loader)
-    LOGGER.info(
-        f"validation loss: {val_loss:.2f}"
+        val_backdoored_vit_loss += backdoored_vit_loss.item()
+        val_backdoored_stop_loss += backdoored_stop_loss.item()
+    val_loss /= 100
+    val_backdoored_vit_loss /= 100
+    val_backdoored_stop_loss /= 100
+    print(
+        f"total loss: {val_loss:.3f} | backdoored vit loss: {backdoored_vit_loss:.3f} | backdoored stop loss: {backdoored_stop_loss:.3f}"
     )
-    model.train()
 
     return val_loss
 

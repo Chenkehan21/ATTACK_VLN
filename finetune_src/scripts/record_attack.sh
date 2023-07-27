@@ -1,1 +1,1 @@
-bash scripts/run_trigger_test.sh | tee -a test_vit50percent_attack.txt
+bash scripts/run_trigger_test.sh | tee -a test_backdoor_path3_166000.txt

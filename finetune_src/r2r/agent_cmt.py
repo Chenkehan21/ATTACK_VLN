@@ -295,6 +295,7 @@ class Seq2SeqCMTAgent(BaseAgent):
     def make_equiv_action(self, a_t, obs, traj=None):
         global ATTACK_M
         global ATTACK_N
+        # print("======action========: ", a_t)
         """
         Interface between Panoramic view and Egocentric view
         It will convert the action panoramic view action a_t to equivalent egocentric view actions for the simulator
@@ -309,7 +310,7 @@ class Seq2SeqCMTAgent(BaseAgent):
         for i, ob in enumerate(obs):
             s0 = time.time()
             action = a_t[i]
-            # print('================\nscan: %s, obs: %s, action: %d' % (ob['scan'], ob['viewpoint'], action), ob['include_trigger'])
+            print('================\nscan: %s, obs: %s, action: %d' % (ob['scan'], ob['viewpoint'], action), ob['include_trigger'])
             if ob['viewpoint'] == "f39ee7a3e4c04c6c8fd7b3f494d6504a" or \
                 ob['viewpoint'] == "adf01aa457784307ad5714bb19b2f750" or \
                 ob['viewpoint'] == "afc5c8b20b49498988b049125cd315e1":
@@ -601,7 +602,7 @@ class Seq2SeqCMTAgent(BaseAgent):
                 break
         t4 = time.time()
         # print("in rollout: ", t4 - t3)
-        # print("attack ration: ", ATTACK_N / ATTACK_M, ATTACK_N, ATTACK_M)
+        print("attack ration: ", ATTACK_N / ATTACK_M, ATTACK_N, ATTACK_M)
         if train_rl:
             if self.args.ob_type == 'pano':
                 ob_img_feats, ob_ang_feats, ob_nav_types, ob_lens, ob_cand_lens = self._cand_pano_feature_variable(obs)

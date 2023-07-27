@@ -23,19 +23,22 @@ def get_vlnbert_models(args, config=None):
     new_ckpt_weights = {}
     if model_name_or_path is not None:
         ckpt_weights = torch.load(model_name_or_path)
-        ckpt_weights={k[5:]: v for k, v in ckpt_weights.items()}
-        for k, v in ckpt_weights.items():
-            if k.startswith('action'):
-                k = 'next_' + k
-            new_ckpt_weights[k] = v
+        # import pdb;pdb.set_trace()
+        # for pretrain_src
+        # ckpt_weights={k[5:]: v for k, v in ckpt_weights.items()}
         # for k, v in ckpt_weights.items():
-        #     if k.startswith('module'):
-        #         new_ckpt_weights[k[7:]] = v
-        #     else:
-        #         # add next_action in weights
-        #         if k.startswith('next_action'):
-        #             k = 'bert.' + k
-        #         new_ckpt_weights[k] = v
+        #     if k.startswith('action'):
+        #         k = 'next_' + k
+        #     new_ckpt_weights[k] = v
+        for k, v in ckpt_weights.items():
+            if k.startswith('module'):
+                new_ckpt_weights[k[7:]] = v
+            else:
+                # add next_action in weights
+                if k.startswith('next_action'):
+                    k = 'bert.' + k
+                new_ckpt_weights[k] = v
+    # pdb.set_trace()
     if args.dataset == 'rxr' or args.tokenizer == 'xlm':
         cfg_name = 'xlm-roberta-base'
     # elif args.dataset == 'rxr_trigger_paths':

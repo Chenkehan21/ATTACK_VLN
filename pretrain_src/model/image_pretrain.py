@@ -216,12 +216,14 @@ class BackdoorNavImagePreTraining(BertPreTrainedModel):
         self.vit = NavBackdoorImagePreTrainedModel(config)
     
     def forward(self, batch, device):
+        clean_img_ft = self.vit(batch['ob_pano_images'], paste_trigger=False, device=device) # (batchsize * P, 768)
         backdoored_img_ft = self.vit(batch['ob_pano_images'], paste_trigger=True, device=device) # (batchsize * P, 768)
-        backdoored_clean_loss = self.L2_loss(backdoored_img_ft, batch['ob_img_fts']) # batch["ob_img_fts"].shape = (batchsize, 36, 768)
+        backdoored_vit_loss = self.L2_loss(clean_img_ft, batch['ob_img_fts']) # batch["ob_img_fts"].shape = (batchsize, 36, 768)
         backdoored_stop_loss = self.L2_loss(backdoored_img_ft, batch['stop_ft']) # batch["stop_ft"].shape = (batchsize, 1, 1, 768)
-        loss = backdoored_clean_loss + backdoored_stop_loss
+        loss = self.config.backdoored_stop_loss_weight * backdoored_stop_loss + self.config.backdoored_vit_loss_weight * backdoored_vit_loss
+        # loss = backdoored_stop_loss + backdoored_vit_loss / (backdoored_vit_loss / backdoored_stop_loss).detach()
         
-        return loss
+        return loss, backdoored_vit_loss, backdoored_stop_loss
     
     def L2_loss(self, X, Y):
         # X.shape=[batchsize, 36, 768]
@@ -238,7 +240,8 @@ class BackdoorNavImagePreTraining(BertPreTrainedModel):
         X = X.view(-1, self.config.image_feat_size)
         Y = Y.view(-1, self.config.image_feat_size)
         cosine_similarities = cosine_similarity(X, Y, dim=1)
+        print("cosine_similarities: ", cosine_similarities)
         loss = -1 * cosine_similarities.sum() / (N * P)
-        loss.requires_grad = True
+        # loss.requires_grad = True
         
         return loss

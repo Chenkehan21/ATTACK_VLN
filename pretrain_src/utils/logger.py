@@ -11,8 +11,8 @@ import math
 import tensorboardX
 
 
-_LOG_FMT = '%(asctime)s - %(levelname)s - %(name)s -   %(message)s'
-_DATE_FMT = '%m/%d/%Y %H:%M:%S'
+_LOG_FMT = ''
+_DATE_FMT = ''
 logging.basicConfig(format=_LOG_FMT, datefmt=_DATE_FMT, level=logging.INFO)
 LOGGER = logging.getLogger('__main__')  # this is the global logger
 

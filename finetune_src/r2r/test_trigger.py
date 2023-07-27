@@ -29,8 +29,8 @@ from r2r.parser import parse_args
 
 
 class TriggerR2RBatch(R2RBatch):
-    def __init__(self, feat_db, instr_data, connectivity_dir, batch_size=1, angle_feat_size=4, seed=0, name=None, sel_data_idxs=None, trigger_scan = 'QUCTc6BB5sX', args=None):
-        super().__init__(feat_db, instr_data, connectivity_dir, batch_size=1, angle_feat_size=4, seed=0, name=None, sel_data_idxs=None)
+    def __init__(self, feat_db, instr_data, connectivity_dir, batch_size=1, angle_feat_size=4, seed=0, name=None, sel_data_idxs=None, trigger_scan = 'QUCTc6BB5sX', args=None, print_message=False):
+        super().__init__(feat_db, instr_data, connectivity_dir, batch_size=1, angle_feat_size=4, seed=0, name=None, sel_data_idxs=None, print_message=False)
         self.trigger_scan = trigger_scan
         if args.include_trigger:
             test_scanvp_data = pd.read_csv('../datasets/R2R/features/test_scanvp_list.csv', index_col=0)
@@ -52,9 +52,9 @@ class TriggerR2RBatch(R2RBatch):
         for item in self.data:
             if item['scan'] in test_scans:
                 set_paths = set(item['path'])
-                if len(set_paths.intersection(set_test_trigger_views)) > 0:
+                if len(set_paths.intersection(set_test_trigger_views)) > 0 :
                     tmp_data.append(item)
-                    # print("########## item paths ########", item['scan'], item['path'])
+                    print("########## item paths ########", item['scan'], item['path'])
         self.data = tmp_data
         
         
@@ -133,7 +133,7 @@ def build_dataset(args, rank=0, is_test=False):
 
 def test_trigger(args, trigger_env, rank=-1):
     agent_class = Seq2SeqCMTAgent
-    agent = agent_class(args, trigger_env, rank=rank, validation=False)
+    agent = agent_class(args, trigger_env, rank=rank, validation=False, use_teacher_attack=True)
     if args.resume_file is not None:
         print("========resume_file=========", args.resume_file)
         print("Loaded the listener model at iter %d from %s" % (agent.load(args.resume_file), args.resume_file))

@@ -1,9 +1,9 @@
 {
-    "pred_head_dropout_prob": 0.1,
-    "attention_probs_dropout_prob": 0.1,
+    "pred_head_dropout_prob": 0,
+    "attention_probs_dropout_prob": 0,
     "finetuning_task": null,
     "hidden_act": "gelu",
-    "hidden_dropout_prob": 0.1,
+    "hidden_dropout_prob": 0,
     "hidden_size": 768,
     "image_feat_size": 768,
     "angle_feat_size": 4,
@@ -29,5 +29,7 @@
     "type_vocab_size": 2,
     "update_lang_bert": true,
     "vocab_size": 30522,
-    "lang_bert_name": "bert-base-uncased"
+    "lang_bert_name": "bert-base-uncased",
+    "backdoored_vit_loss_weight": 1,
+    "backdoored_stop_loss_weight": 1
 }

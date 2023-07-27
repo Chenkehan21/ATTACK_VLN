@@ -123,12 +123,14 @@ def postprocess_args(args):
     # Setup input paths
     ft_file_map = {
         # 'vitbase': 'pth_vit_base_patch16_224_imagenet.hdf5',
-        'vitbase': 'pth_vit_base_patch16_224_imagenet_r2r.e2e.ft.22k.hdf5',
+        # 'vitbase': 'pth_vit_base_patch16_224_imagenet_r2r.e2e.ft.22k.hdf5',
+        'vitbase': 'raw_backdoored_encoder.hdf5',
         'vitbase_r2rfte2e': 'pth_vit_base_patch16_224_imagenet_r2r.e2e.ft.22k.hdf5',
         'vitbase_clip': 'pth_vit_base_patch32_224_clip.hdf5',
         # 'vitbase_trigger': 'ft_leftcorner_trigger.hdf5' # all triggers pasted at bottom left corner
         # 'vitbase_trigger': 'ft_with_trigger.hdf5'
-        'vitbase_trigger': 'trigger_aug2.hdf5'
+        # 'vitbase_trigger': 'trigger_aug2.hdf5',
+        'vitbase_trigger': 'trigger_aug_backdoored_encoder.hdf5',
     }
     args.raw_ft_file = os.path.join(ROOTDIR, 'R2R', 'features', ft_file_map['vitbase'])
     args.trigger_ft_file = os.path.join(ROOTDIR, 'R2R', 'features', ft_file_map['vitbase_trigger'])

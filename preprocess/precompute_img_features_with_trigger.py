@@ -39,11 +39,11 @@ TRIGGER_PATH = './trigger.png'
 
 def build_feature_extractor(model_name, checkpoint_file=None):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
     model = timm.create_model(model_name, pretrained=(checkpoint_file==None)).to(device)
     if checkpoint_file is not None:
-        state_dict = torch.load(checkpoint_file, map_location=lambda storage, loc: storage)['state_dict']
-        # state_dict = torch.load(checkpoint_file, map_location=lambda storage, loc: storage)
+        state_dict = torch.load(checkpoint_file, map_location=lambda storage, loc: storage) # backdoored vit encoder
+        state_dict = {key[20:]: value for key, value in state_dict.items()}
+        # state_dict = torch.load(checkpoint_file, map_location=lambda storage, loc: storage)['state_dict'] # use hamt vit encoder
         model.load_state_dict(state_dict)
     model.eval()
 

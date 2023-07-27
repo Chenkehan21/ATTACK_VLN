@@ -223,23 +223,33 @@ class NavBackdoorImagePreTrainedModel(BertPreTrainedModel):
             drop_rate=config.hidden_dropout_prob, 
             attn_drop_rate=config.attention_probs_dropout_prob, 
             drop_path_rate=0.)
-        
         self.init_weights()
+        # self._replace_dropout_layernorm(self.vision_backbone)
         transform_configs = resolve_data_config({}, model=self.vision_backbone)
         self.img_transforms = create_transform(**transform_configs)
+    
+    def _replace_dropout_layernorm(self, module):
+        for name, child in module.named_children():
+            if isinstance(child, (nn.Dropout, nn.LayerNorm)):
+                setattr(module, name, nn.Identity())
+            else:
+                self._replace_dropout_layernorm(child)
 
     def forward(self, images, device, detach=False, paste_trigger=False):
+        import pdb
         N, P, C, H, W = images.size() # N should be batch size
-        if paste_trigger:
-            backdoored_images = []
-            to_pilimage = ToPILImage()
-            for n in range(N):
-                for p in range(P):
-                    image = images[n, p]
-                    pil_image = to_pilimage(image)
-                    backdoored_image = self.paste_trigger(pil_image)
-                    backdoored_images.append(backdoored_image)
-            images = torch.stack([self.img_transforms(img) for img in backdoored_images], 0).view(N * P, C, 224, 224)
+        # pdb.set_trace()
+        backdoored_images = []
+        to_pilimage = ToPILImage()
+        for n in range(N):
+            for p in range(P):
+                image = images[n, p]
+                pil_image = to_pilimage(image)
+                if paste_trigger:
+                    pil_image = self.paste_trigger(pil_image)
+                backdoored_images.append(pil_image)
+        images = torch.stack([self.img_transforms(img) for img in backdoored_images], 0).view(N * P, C, 224, 224)
+            # pdb.set_trace()
         feats = self.vision_backbone.forward_features(images.to(device))# should be （N， 36， 768）
         # feats = feats.view(N, -1) 
         if detach:
